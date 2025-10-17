@@ -29,6 +29,7 @@ int main(void) {
 	// Test in Endlosschleife
 
 	// while schleife
+	// kommenatar
 	while(1) {
 		HAL_Delay(10000);
 	}
