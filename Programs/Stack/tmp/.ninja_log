@@ -1,0 +1,13 @@
+# ninja log v6
+0	21	1760698069746107096	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir	e78246476e1ddab6
+0	21	1760698069746107096	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir	e78246476e1ddab6
+21	41	1760698069766243193	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download	909ea0cbfd10688e
+21	41	1760698069766243193	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download	909ea0cbfd10688e
+41	61	1760698069785627648	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update	5319844299c802fc
+41	61	1760698069785627648	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update	5319844299c802fc
+61	79	1760698069803807785	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch	37eeaa036f1c5451
+61	79	1760698069803807785	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch	37eeaa036f1c5451
+79	11996	1760698081721341118	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure	b1055cfe01e8d8ed
+79	11996	1760698081721341118	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure	b1055cfe01e8d8ed
+11996	12043	1760698081722346226	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-database	d3f02fbc94f3ee75
+11996	12043	1760698081722346226	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-database	d3f02fbc94f3ee75
