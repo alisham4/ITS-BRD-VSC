@@ -27,6 +27,8 @@ int main(void) {
 	lcdPrintlnS("Hallo liebes TI-Labor (c-project)");
 	
 	// Test in Endlosschleife
+
+	// while schleife
 	while(1) {
 		HAL_Delay(10000);
 	}
