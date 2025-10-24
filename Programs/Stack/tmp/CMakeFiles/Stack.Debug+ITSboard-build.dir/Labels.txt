@@ -1,11 +1,11 @@
 # Target labels
  Stack.Debug+ITSboard
 # Source files and their labels
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build.rule
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-build.rule
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure.rule
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch.rule
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update.rule
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download.rule
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir.rule
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build.rule
+C:/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-build.rule
+C:/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure.rule
+C:/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch.rule
+C:/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update.rule
+C:/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download.rule
+C:/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir.rule

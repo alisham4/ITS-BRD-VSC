@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard
+source_dir=C:/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard
 work_dir=
 

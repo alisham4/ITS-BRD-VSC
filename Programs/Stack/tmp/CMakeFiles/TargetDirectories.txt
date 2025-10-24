@@ -1,8 +1,8 @@
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/database.dir
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard.dir
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build.dir
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-configure.dir
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-executes.dir
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-database.dir
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/edit_cache.dir
-/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/rebuild_cache.dir
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/database.dir
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard.dir
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build.dir
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-configure.dir
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-executes.dir
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-database.dir
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/edit_cache.dir
+C:/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/rebuild_cache.dir
