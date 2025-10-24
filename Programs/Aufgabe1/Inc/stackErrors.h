@@ -1,0 +1,3 @@
+
+#define STACK_OVERFLOW 1
+#define STACK_UNDERFLOW 2
