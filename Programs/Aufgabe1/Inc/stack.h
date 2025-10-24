@@ -45,4 +45,10 @@ void swap(int *num1, int*num2);
  */
 int isEmpty(void);
 
+/**
+ * @brief checks wether the stack is full or not
+ * @return int
+ */
+int isFull(void);
+
 #endif

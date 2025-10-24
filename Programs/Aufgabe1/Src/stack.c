@@ -19,6 +19,10 @@ int pop(){
     }
 }
 
+int returnFirst(){
+   return stack[topIndex];
+}
+
 int push(int value){
      if(topIndex >= MAX_SIZE){
         return STACK_OVERFLOW;
@@ -38,4 +42,11 @@ int isEmpty(void){
     }
 }
 
+int isFull(){
+   if(topIndex == MAX_SIZE){
+      return 1;
+   }else{
+      return 0;
+   }
+}
 
