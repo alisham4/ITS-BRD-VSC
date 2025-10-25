@@ -22,9 +22,9 @@ int push(int value);
 
 /**
  * @brief the whole stack
- * @return int
+ * @return void
  */
-int  printStack(void);
+void  printStack(void);
 
 /**
  * @brief fills the stack with zeros (deletes all entries)

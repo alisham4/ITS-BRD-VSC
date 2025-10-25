@@ -8,30 +8,64 @@ int stack[MAX_SIZE];
 int topIndex = -1;
 
 
-int pop(){
-    if(isEmpty() == 1){
-       return STACK_UNDERFLOW;
+//PUSH
+int push(int value){
+    if(isFull()){
+       return STACK_OVERFLOW;
     }else{
-       int value;
-       value = stack[topIndex];
-       topIndex--;
-       return value;
+       topIndex++;
+       stack[topIndex] = value;
+       return 0;
     }
 }
 
+//POP 
+int pop(){
+    if(isEmpty()){
+      return STACK_UNDERFLOW;
+    }else{
+      int value = stack[topIndex];
+      topIndex--;
+      return value;
+    }
+}
+
+//returnFirst 
 int returnFirst(){
    return stack[topIndex];
 }
 
-int push(int value){
-     if(topIndex >= MAX_SIZE){
-        return STACK_OVERFLOW;
-     }else{
-        stack[topIndex] = value;
-        topIndex++;
-        return 0;
-     }
 
+//printStack
+void printStack(void){
+     if(!isEmpty()){
+        for (int i = 0; i <= topIndex; i++){
+            printf("%d\t", stack[i]);
+        }
+     } else{
+        printf("Stack is empty!");
+     }
+}
+
+//swap
+void swap(int *num1, int *num2){
+     int temp;
+     temp = *num1;
+     *num1 = *num2;
+     *num2 = temp;
+
+}
+
+/*--------------------------------------------------------------------------------------------
+Helper Methods
+*/
+
+void stackClear(){
+    for(int i = 0; i< MAX_SIZE; i++){
+       stack[i] = 0;
+    }
+    topIndex = -1;
+    
 }
 
 int isEmpty(void){
