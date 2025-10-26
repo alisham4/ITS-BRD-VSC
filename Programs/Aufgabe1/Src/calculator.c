@@ -1,6 +1,8 @@
 #include "calculator.h"
 #include "stack.h"
 
+#define DIVIDE_BY_ZERO_ERROR -3 
+
 int operations (String inputOperation){
     switch (inputOperation) {
         case "+" : add(void);
@@ -40,6 +42,11 @@ int mul(void){
 int div(void){
     int number1 = pop();
     int number2 = pop();
-    int answer = number1/number2;
-    push(answer);
+    if(number2!=0){
+        int answer = number1/number2;
+        push(answer);
+    } else {
+        return DIVIDE_BY_ZERO_ERROR;
+    }
+    
 }
