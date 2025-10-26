@@ -1,6 +1,21 @@
 #include "calculator.h"
 #include "stack.h"
 
+int operations (String inputOperation){
+    switch (inputOperation) {
+        case "+" : add(void);
+        break;
+        case "-" : sub(void);
+        break;
+        case "*" : mul(void);
+        break;
+        case "/" : div(void);
+        break;
+        default: printf("The operation is undefined");
+        break;
+    }
+}
+
 int add(void){
     int number1 = pop();
     int number2 = pop();
