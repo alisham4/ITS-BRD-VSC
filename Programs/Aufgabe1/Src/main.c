@@ -15,6 +15,8 @@
 #include "fontsFLASH.h"
 #include "additionalFonts.h"
 #include "error.h"
+#include "stack.h"
+#include "calculator.h"
 
 
 int main(void) {
