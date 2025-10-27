@@ -17,6 +17,8 @@
 #include "error.h"
 #include "stack.h"
 #include "calculator.h"
+#include "token.h"
+
 
 
 int main(void) {
@@ -36,6 +38,7 @@ int main(void) {
 	}
 
 	T_token t;
+    int num1,num2;
 
 	switch (t.tok) {
         case '+' : add();
@@ -54,7 +57,7 @@ int main(void) {
         break;
 		case 'd' : dublicate();
 		break;
-		case 'r' : swap();
+		case 'r' : swap(&num1,&num2);
         break;
         default: printf("The operation is undefined");
         break;

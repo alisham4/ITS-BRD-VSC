@@ -6,6 +6,7 @@
 
 int stack[MAX_SIZE];
 static int topIndex = -1;
+static int num;
 
 
 //PUSH
@@ -60,7 +61,7 @@ void swap(int *num1, int *num2){
 int dublicate(void){
       // check if Stack is not empty, then pop a number to dublicate
       if(isEmpty==0){
-         int num=pop();
+           num=pop();
       } else {
          return STACK_UNDERFLOW;
       }
