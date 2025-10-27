@@ -5,7 +5,7 @@
 #define MAX_SIZE 10
 
 int stack[MAX_SIZE];
-int topIndex = -1;
+static int topIndex = -1;
 
 
 //PUSH
