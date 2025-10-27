@@ -3,7 +3,7 @@
 
 #define DIVIDE_BY_ZERO_ERROR -3 
 
-int operations (String inputOperation){
+int operations (char inputOperation){
     switch (inputOperation) {
         case "+" : add(void);
         break;
