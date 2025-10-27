@@ -5,13 +5,13 @@
 
 int operations (char inputOperation){
     switch (inputOperation) {
-        case "+" : add(void);
+        case '+' : add(void);
         break;
-        case "-" : sub(void);
+        case '-' : sub(void);
         break;
-        case "*" : mul(void);
+        case '*' : mul(void);
         break;
-        case "/" : div(void);
+        case '/' : div(void);
         break;
         default: printf("The operation is undefined");
         break;
