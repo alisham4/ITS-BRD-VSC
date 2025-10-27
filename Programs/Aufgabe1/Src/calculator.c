@@ -2,22 +2,7 @@
 #include "stack.h"
 #include "Errors.h"
 
-
-int operations (char inputOperation){
-    switch (inputOperation) {
-        case '+' : add();
-        break;
-        case '-' : sub();
-        break;
-        case '*' : mul();
-        break;
-        case '/' : div();
-        break;
-        default: printf("The operation is undefined");
-        break;
-    }
-}
-
+//addition
 int add(void){
     int number1 = pop();
     int number2 = pop();
@@ -25,6 +10,7 @@ int add(void){
     push(answer);
 }
 
+//subtraction
 int sub(void){
     int number1 = pop();
     int number2 = pop();
@@ -32,6 +18,7 @@ int sub(void){
     push(answer);
 }
 
+//multiplication
 int mul(void){
     int number1 = pop();
     int number2 = pop();
@@ -39,6 +26,7 @@ int mul(void){
     push(answer);
 }
 
+//division
 int div(void){
     int number1 = pop();
     int number2 = pop();

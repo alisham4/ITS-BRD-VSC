@@ -51,4 +51,11 @@ int isEmpty(void);
  */
 int isFull(void);
 
+/**
+ * @brief dublicates the top value 
+ * @return int
+ */
+int dublicate(void);
+
+
 #endif

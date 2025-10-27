@@ -29,10 +29,34 @@ int main(void) {
 	// Test in Endlosschleife
 
 	// while schleife
-	// kommenatar
 	while(1) {
 		HAL_Delay(10000);
 	}
+
+	T_token t;
+
+	switch (t.tok) {
+        case '+' : add();
+        break;
+        case '-' : sub();
+        break;
+        case '*' : mul();
+        break;
+        case '/' : div();
+        break;
+		case 'p' : returnFirst();
+        break;
+		case 'P' : printStack();
+        break;
+		case 'C' : stackClear();
+        break;
+		case 'd' : dublicate();
+		break;
+		case 'r' : swap();
+        break;
+        default: printf("The operation is undefined");
+        break;
+    }
 }
 
 // EOF

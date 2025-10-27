@@ -56,6 +56,27 @@ void swap(int *num1, int *num2){
 
 }
 
+//dublicate
+int dublicate(void){
+      // check if Stack is not empty, then pop a number to dublicate
+      if(isEmpty==0){
+         int num=pop();
+      } else {
+         return STACK_UNDERFLOW;
+      }
+      
+      push(num);
+
+      //check if Stack is not full, then push the dublicate
+      if(isFull==0){
+         push(num);
+         return 0;
+      } else {
+         return STACK_OVERFLOW;
+      }
+      
+}
+
 /*--------------------------------------------------------------------------------------------
 Helper Methods
 */
