@@ -1,7 +1,7 @@
 #include "calculator.h"
 #include "stack.h"
+#include "Errors.h"
 
-#define DIVIDE_BY_ZERO_ERROR -3 
 
 int operations (String inputOperation){
     switch (inputOperation) {
