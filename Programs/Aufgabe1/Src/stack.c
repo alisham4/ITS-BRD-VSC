@@ -1,6 +1,6 @@
 #include "stack.h"
 #include <stdio.h>
-#include "stackErrors.h"
+#include "Errors.h"
 
 #define MAX_SIZE 10
 
