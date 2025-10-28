@@ -39,6 +39,7 @@ int main(void) {
 	while(1) {
 
         T_token t = nextToken();
+        push(&t);
 
         int error;
         
