@@ -6,6 +6,7 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
+
 #include "stm32f4xx_hal.h"
 #include "init.h"
 #include "LCD_GUI.h"
@@ -18,29 +19,31 @@
 #include "calculator.h"
 #include "token.h"
 #include "Errors.h"
+#include "display.h"
+#include "scanner.h"
 
 
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
-	
 	GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
-	TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
+	TP_Init(false);  
+    initDisplay();          // Initialisierung des LCD Boards mit Touch
 
   // Begruessungstext	
-	lcdPrintlnS("Hallo liebes TI-Labor (c-project)");
+	//lcdPrintlnS("Hallo liebes TI-Labor (c-project)");
 	
 	// Test in Endlosschleife
 
 	// while schleife
 	while(1) {
-		HAL_Delay(10000);
 
-        T_token t;
+        T_token t = nextToken();
+
         int error;
         
 	switch (t.tok) {
-        case '+' : error = add();
+        case PLUS : error = add();
         break;
         case '-' : error = sub();
         break;
