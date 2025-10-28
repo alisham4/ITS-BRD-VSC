@@ -35,11 +35,9 @@ int main(void) {
 	// while schleife
 	while(1) {
 		HAL_Delay(10000);
-	}
 
-	T_token t;
-    
-
+        T_token t;
+        
 	switch (t.tok) {
         case '+' : add();
         break;
@@ -62,6 +60,11 @@ int main(void) {
         default: printf("The operation is undefined");
         break;
     }
+	}
+
+	
+    
+
 }
 
 // EOF
