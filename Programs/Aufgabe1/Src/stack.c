@@ -49,7 +49,9 @@ void printStack(void){
 }
 
 //swap
-void swap(int *num1, int *num2){
+void swap(){
+     int num1 = pop();
+     int num2 = pop();
      int temp;
      temp = *num1;
      *num1 = *num2;

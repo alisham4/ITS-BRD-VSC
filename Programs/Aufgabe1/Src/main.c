@@ -38,7 +38,7 @@ int main(void) {
 	}
 
 	T_token t;
-    int num1,num2;
+    
 
 	switch (t.tok) {
         case '+' : add();
@@ -57,7 +57,7 @@ int main(void) {
         break;
 		case 'd' : dublicate();
 		break;
-		case 'r' : swap(&num1,&num2);
+		case 'r' : swap();
         break;
         default: printf("The operation is undefined");
         break;
