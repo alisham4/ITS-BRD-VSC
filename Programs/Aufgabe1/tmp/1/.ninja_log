@@ -1,4 +1,5 @@
 # ninja log v6
+<<<<<<< HEAD
 4153	4880	7833401479274750	CMakeFiles/Group_LCD.dir/C_/ITS-BRD-VSC/DisplayWaveshare/Src/LCD_GUI.o	d2292c404f7968c
 42	232	7833440881933585	CMakeFiles/database	558f0933f6283d5f
 5017	5636	7833401487912705	CMakeFiles/Group_ITS_BRD_LIB.dir/C_/ITS-BRD-VSC/ITS_BRD_LIB/Src/lcd.o	94cb2e4d515fe093
@@ -77,3 +78,10 @@
 113	250	7833462460175028	C:/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug/Aufgabe1.axf	d39c93a02b37f7b5
 23	101	7833462462703556	CMakeFiles/database	558f0933f6283d5f
 23	101	7833462462703556	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1/CMakeFiles/database	558f0933f6283d5f
+=======
+1	21	1761641845451670267	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1/CMakeFiles/database	d6fedc6c8dd9ae6
+1	21	1761641845451670267	CMakeFiles/database	d6fedc6c8dd9ae6
+1	261	1761642176738288178	build.ninja	69fa7cce9523bd28
+1	24	1761642176744092271	CMakeFiles/database	d6fedc6c8dd9ae6
+1	24	1761642176744092271	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1/CMakeFiles/database	d6fedc6c8dd9ae6
+>>>>>>> 32faac1cde6020e94376ad852919fcbb313989f1

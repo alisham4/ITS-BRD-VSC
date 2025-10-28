@@ -333,9 +333,9 @@ build:
           category: header
         - file: ../../../../Inc/stack.h
           category: header
-        - file: ../../../../Inc/calculator.h
-          category: header
         - file: ../../../../Inc/Errors.h
+          category: header
+        - file: ../../../../Inc/calculator.h
           category: header
     - group: Program/User/Src
       files:

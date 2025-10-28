@@ -1,4 +1,5 @@
 # ninja log v6
+<<<<<<< HEAD
 248	386	7833401302273408	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-download	232ed163890f97fa
 387	536	7833401303755861	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update	772e0464a11377fb
 539	723	7833401305657698	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-patch	e4e2a47709dbe857
@@ -37,3 +38,19 @@
 769	887	7833462466210165	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-done	b10f19227018ea76
 769	887	7833462466210165	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-complete	b10f19227018ea76
 769	887	7833462466210165	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-done	b10f19227018ea76
+=======
+1169	1216	1761641845427332988	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	d65e0347736addd
+1169	1216	1761641845427332988	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	d65e0347736addd
+89	1169	1761641845426607737	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure	db6cdcb05a9b408
+89	1169	1761641845426607737	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure	db6cdcb05a9b408
+68	89	1761641844346514529	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-patch	19b70359f99133f3
+68	89	1761641844346514529	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-patch	19b70359f99133f3
+49	68	1761641844325303420	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update	a86ecc4b0e950679
+26	49	1761641844306126314	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-download	6d28eb8c8f3f6bc4
+1	26	1761641844283516703	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-mkdir	913e7ece12505577
+49	68	1761641844325303420	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update	a86ecc4b0e950679
+26	49	1761641844306126314	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-download	6d28eb8c8f3f6bc4
+1	26	1761641844283516703	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-mkdir	913e7ece12505577
+0	311	1761642176458616313	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	d65e0347736addd
+0	311	1761642176458616313	/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	d65e0347736addd
+>>>>>>> 32faac1cde6020e94376ad852919fcbb313989f1
