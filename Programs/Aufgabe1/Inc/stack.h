@@ -34,10 +34,9 @@ void stackClear(void);
 
 /**
  * @brief swaps two values
- * @param address of first and second value on the stack
  * @return void
  */
-void swap(int *num1, int*num2);
+void swap();
 
 /**
  * @brief checks wheter the stack is empty or not

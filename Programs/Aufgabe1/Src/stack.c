@@ -52,11 +52,9 @@ void printStack(void){
 void swap(){
      int num1 = pop();
      int num2 = pop();
-     int temp;
-     temp = *num1;
-     *num1 = *num2;
-     *num2 = temp;
 
+     push(num1);
+     push(num2);
 }
 
 //dublicate
