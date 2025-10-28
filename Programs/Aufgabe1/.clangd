@@ -1,6 +1,5 @@
 CompileFlags:
-  CompilationDatabase: >-
-    /Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug
+  CompilationDatabase: c:\ITS-BRD-VSC\Programs\Aufgabe1\out\Aufgabe1\ITSboard\Debug
   Add:
     - '-D_ILP32=1'
     - '-D_USE_STATIC_INLINE=1'
@@ -413,27 +412,20 @@ CompileFlags:
     - '-D__thumb__=1'
     - '-D__ARMCOMPILER_LIBCXX=1'
     - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+      -IC:/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+    - '-IC:/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/CMSIS/Include'
     - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/CMSIS/Include
+      -IC:/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/STM32F4xx_HAL_Driver/Inc
     - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/STM32F4xx_HAL_Driver/Inc
+      -IC:/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/BSP/STM32F4xx_Nucleo_144
+    - '-IC:/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Utilities/Fonts'
+    - '-IC:/ITS-BRD-VSC/Programs/Aufgabe1/../../DisplayWaveshare/Inc'
+    - '-IC:/ITS-BRD-VSC/Programs/Aufgabe1/../../ITS_BRD_LIB/Utilities/AddFonts'
+    - '-IC:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard'
+    - '-IC:/ITS-BRD-VSC/Programs/Aufgabe1/RTE/_Debug_ITSboard'
     - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/BSP/STM32F4xx_Nucleo_144
+      -IC:/Users/enuzh/AppData/Local/arm/packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
     - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Utilities/Fonts
-    - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/../../DisplayWaveshare/Inc
-    - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/../../ITS_BRD_LIB/Utilities/AddFonts
-    - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
-    - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/RTE/_Debug_ITSboard
-    - >-
-      -I/Users/alishamuzaffar/.cache/arm/packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
-    - >-
-      -I/Users/alishamuzaffar/.cache/arm/packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
-    - >-
-      -I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/../../ITS_BRD_LIB/Inc
-    - '-I/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/Inc'
+      -IC:/Users/enuzh/AppData/Local/arm/packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+    - '-IC:/ITS-BRD-VSC/Programs/Aufgabe1/../../ITS_BRD_LIB/Inc'
+    - '-IC:/ITS-BRD-VSC/Programs/Aufgabe1/Inc'

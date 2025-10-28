@@ -10,24 +10,24 @@ static int num;
 
 
 //PUSH
-int push(int value){
+int push(int *value){
     if(isFull()){
        return STACK_OVERFLOW;
     }else{
        topIndex++;
-       stack[topIndex] = value;
-       return 0;
+       stack[topIndex] = *value;
+       return SUCCESS;
     }
 }
 
 //POP 
-int pop(){
+int pop(int *value){
     if(isEmpty()){
       return STACK_UNDERFLOW;
     }else{
-      int value = stack[topIndex];
+      *value = stack[topIndex];
       topIndex--;
-      return value;
+      return SUCCESS;
     }
 }
 
@@ -49,29 +49,39 @@ void printStack(void){
 }
 
 //swap
-void swap(){
-     int num1 = pop();
-     int num2 = pop();
-
-     push(num1);
-     push(num2);
+     int swap(){
+     int num1,num2;
+     int res1,res2;
+     res1 = pop(&num1);
+     res2 = pop(&num2);
+     
+     if(res1 == SUCCESS && res2 == SUCCESS){
+      push(&num1);
+      push(&num2);
+      return SUCCESS;
+     }else{
+      return STACK_UNDERFLOW;
+     }
+     
 }
 
-//dublicate
-int dublicate(void){
-      // check if Stack is not empty, then pop a number to dublicate
-      if(isEmpty==0){
-           num=pop();
+//duplicate
+int duplicate(void){
+      // check if Stack is not empty, then pop a number to duplicate
+      if(isEmpty()==SUCCESS){
+           int res;
+           int num;
+           res = pop(&num);
       } else {
          return STACK_UNDERFLOW;
       }
       
-      push(num);
+      push(&num);
 
-      //check if Stack is not full, then push the dublicate
-      if(isFull==0){
-         push(num);
-         return 0;
+      //check if Stack is not full, then push the duplicate
+      if(isFull()==SUCCESS){
+         push(&num);
+         return SUCCESS;
       } else {
          return STACK_OVERFLOW;
       }
@@ -92,17 +102,17 @@ void stackClear(){
 
 int isEmpty(void){
     if(topIndex <= -1){
-      return 1;
+      return STACK_UNDERFLOW;
     }else{
-        return 0;
+        return SUCCESS;
     }
 }
 
 int isFull(){
    if(topIndex == MAX_SIZE){
-      return 1;
+      return STACK_OVERFLOW;
    }else{
-      return 0;
+      return SUCCESS;
    }
 }
 

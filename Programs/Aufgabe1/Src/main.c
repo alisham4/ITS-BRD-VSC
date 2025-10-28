@@ -18,6 +18,8 @@
 #include "stack.h"
 #include "calculator.h"
 #include "token.h"
+#include "Errors.h"
+#include "Errors.c"
 
 
 
@@ -37,29 +39,36 @@ int main(void) {
 		HAL_Delay(10000);
 
         T_token t;
+        int error;
         
 	switch (t.tok) {
-        case '+' : add();
+        case '+' : error = add();
         break;
-        case '-' : sub();
+        case '-' : error = sub();
         break;
-        case '*' : mul();
+        case '*' : error = mul();
         break;
-        case '/' : div();
+        case '/' : error = div();
         break;
-		case 'p' : returnFirst();
+		case 'p' : error = returnFirst();
         break;
 		case 'P' : printStack();
         break;
 		case 'C' : stackClear();
         break;
-		case 'd' : dublicate();
+		case 'd' : error =  duplicate();
 		break;
-		case 'r' : swap();
+		case 'r' : error = swap();
         break;
         default: printf("The operation is undefined");
         break;
     }
+
+    if(error!=SUCCESS){
+       errorMessage(error);
+    }
+
+
 	}
 
 	

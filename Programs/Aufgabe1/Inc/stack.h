@@ -3,9 +3,10 @@
 
 /**
  * @brief returns the top most element of the stack and removes it
+ * @param int*
  * @return int
  */
-int  pop(void);
+int  pop(int *);
 
 /**
  * @brief returns the top most element of the stack without changing the stack
@@ -15,10 +16,10 @@ int returnFirst(void);
 
 /**
  * @brief pushes an elemnt on top the stack
- * @param int
+ * @param int*
  * @return int
  */
-int push(int value);  
+int push(int *value);  
 
 /**
  * @brief the whole stack
@@ -34,9 +35,9 @@ void stackClear(void);
 
 /**
  * @brief swaps two values
- * @return void
+ * @return int
  */
-void swap();
+int swap();
 
 /**
  * @brief checks wheter the stack is empty or not
@@ -54,7 +55,7 @@ int isFull(void);
  * @brief dublicates the top value 
  * @return int
  */
-int dublicate(void);
+int duplicate(void);
 
 
 #endif
