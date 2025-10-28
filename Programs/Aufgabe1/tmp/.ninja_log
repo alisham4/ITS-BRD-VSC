@@ -10,8 +10,8 @@
 387	536	7833401303755861	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update	772e0464a11377fb
 724	11305	7833401411428885	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure	3422ad8566413992
 724	11305	7833401411428885	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure	3422ad8566413992
-688	1077	7833440880334871	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	e4e6d5266b74bf59
-688	1077	7833440880334871	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	e4e6d5266b74bf59
+30	359	7833460837371245	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	e4e6d5266b74bf59
+30	359	7833460837371245	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	e4e6d5266b74bf59
 1391	1617	7833440889436740	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-done	b10f19227018ea76
 33	687	7833440873799449	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-build	6e15209e2452f5d0
 33	687	7833440873799449	C:/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug/Aufgabe1.axf	6e15209e2452f5d0
@@ -24,3 +24,16 @@
 1197	1391	7833440887232479	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-test	412a1d00e2500cba
 1391	1617	7833440889436740	CMakeFiles/Aufgabe1.Debug+ITSboard-complete	b10f19227018ea76
 1391	1617	7833440889436740	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-done	b10f19227018ea76
+16	426	7833462457604615	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-build	6e15209e2452f5d0
+16	426	7833462457604615	C:/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug/Aufgabe1.axf	6e15209e2452f5d0
+16	426	7833462457604615	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-build	6e15209e2452f5d0
+426	624	7833462461699888	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	e4e6d5266b74bf59
+426	624	7833462461699888	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database	e4e6d5266b74bf59
+624	672	7833462463669108	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-install	99947554f0b80de6
+624	672	7833462463669108	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-install	99947554f0b80de6
+672	769	7833462465042547	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-test	412a1d00e2500cba
+672	769	7833462465042547	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-test	412a1d00e2500cba
+769	887	7833462466210165	CMakeFiles/Aufgabe1.Debug+ITSboard-complete	b10f19227018ea76
+769	887	7833462466210165	Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-done	b10f19227018ea76
+769	887	7833462466210165	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-complete	b10f19227018ea76
+769	887	7833462466210165	C:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-done	b10f19227018ea76

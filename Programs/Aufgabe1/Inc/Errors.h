@@ -1,5 +1,8 @@
 
 
+#ifndef ERRORS_H
+#define ERRORS_H
+
 #define STACK_OVERFLOW -1
 #define STACK_UNDERFLOW -2
 #define DIVIDE_BY_ZERO_ERROR -3 
@@ -11,3 +14,5 @@
  */
 
 void errorMessage(int error);
+
+#endif

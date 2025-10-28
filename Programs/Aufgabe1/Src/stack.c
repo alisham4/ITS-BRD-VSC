@@ -49,7 +49,7 @@ void printStack(void){
 }
 
 //swap
-     int swap(){
+int swap(){
      int num1,num2;
      int res1,res2;
      res1 = pop(&num1);

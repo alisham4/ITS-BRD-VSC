@@ -195,6 +195,7 @@ project:
         - file: Src/display.c
         - file: Src/stack.c
         - file: Src/calculator.c
+        - file: Src/Errors.c
 
 
   components:

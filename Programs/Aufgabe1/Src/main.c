@@ -19,7 +19,6 @@
 #include "calculator.h"
 #include "token.h"
 #include "Errors.h"
-#include "Errors.c"
 
 
 

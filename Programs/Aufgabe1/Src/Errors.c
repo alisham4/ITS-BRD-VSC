@@ -1,5 +1,6 @@
 #include "Error.h"
-#include "main.c"
+#include "lcd.h"
+
 
 void errorMessage(int error){
     switch(error){
