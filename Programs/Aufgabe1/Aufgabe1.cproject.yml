@@ -184,8 +184,8 @@ project:
         - file: Inc/scanner.h
         - file: Inc/token.h
         - file: Inc/stack.h
+        - file: Inc/errors.h
         - file: Inc/calculator.h
-        - file: Inc/Errors.h
 
     # Benutzerdefinierte Programmdateien
     - group: Program/User/Src
@@ -193,9 +193,9 @@ project:
         - file: Src/main.c
         - file: Src/scanner.c
         - file: Src/display.c
-        - file: Src/stack.c
+        - file: Src/stack.c 
         - file: Src/calculator.c
-
+        - file: Src/Errors.c
 
   components:
     - component: ARM::CMSIS:CORE
