@@ -196,10 +196,6 @@ project:
         - file: Src/stack.c 
         - file: Src/calculator.c
         - file: Src/Errors.c
-<<<<<<< HEAD
-
-=======
->>>>>>> 32faac1cde6020e94376ad852919fcbb313989f1
 
   components:
     - component: ARM::CMSIS:CORE

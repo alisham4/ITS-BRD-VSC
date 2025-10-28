@@ -1,6 +1,5 @@
 #include "calculator.h"
 #include "stack.h"
-#include "stack.c"
 #include "Errors.h"
 
 //addition
