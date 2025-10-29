@@ -37,7 +37,8 @@ int main(void) {
 
 	// while schleife
 	while(1) {
-
+        
+        //get the next token and push it onto the stack
         T_token t = nextToken();
         push(&t);
 
