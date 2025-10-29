@@ -7,6 +7,7 @@
   */
 /* Includes ------------------------------------------------------------------*/
 
+#include "stm32f4xx.h"
 #include "stm32f4xx_hal.h"
 #include "init.h"
 #include "LCD_GUI.h"
@@ -38,13 +39,19 @@ int main(void) {
 	// while schleife
 	while(1) {
         
-        //get the next token and push it onto the stack
+        //get the next token and push it onto the stack if stack is not full
         T_token t = nextToken();
-        push(&t);
+        int error = SUCCESS;
 
-        int error;
+        if(isFull() == SUCCESS){
+           error = push(&t);
+        }else{
+           error = STACK_OVERFLOW;
+        }
+
         
-	switch (t.tok) {
+    if(error == SUCCESS){
+       switch (t.tok) {
         case PLUS : error = add();
         break;
         case MINUS : error = sub();
@@ -66,17 +73,10 @@ int main(void) {
         default: printf("The operation is undefined");
         break;
     }
-
-    if(error!=SUCCESS){
-       errorMessage(error);
-    }
-
-
-	}
-
-	
-    
-
+} else{
+    errorMessage(error);
+}
+    }    
 }
 
 // EOF

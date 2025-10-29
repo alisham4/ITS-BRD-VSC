@@ -67,10 +67,10 @@ int swap(){
 
 //duplicate
 int duplicate(void){
+      int num;
       // check if Stack is not empty, then pop a number to duplicate
       if(isEmpty()==SUCCESS){
            int res;
-           int num;
            res = pop(&num);
       } else {
          return STACK_UNDERFLOW;
@@ -109,7 +109,7 @@ int isEmpty(void){
 }
 
 int isFull(){
-   if(topIndex == MAX_SIZE){
+   if(topIndex == MAX_SIZE - 1){
       return STACK_OVERFLOW;
    }else{
       return SUCCESS;
