@@ -16,10 +16,10 @@ int returnFirst(void);
 
 /**
  * @brief pushes an elemnt on top the stack
- * @param int*
+ * @param int
  * @return int
  */
-int push(int *value);  
+int push(int value);  
 
 /**
  * @brief the whole stack
@@ -56,6 +56,13 @@ int isFull(void);
  * @return int
  */
 int duplicate(void);
+
+/**
+ * @brief int to string 
+ * @param the number to be converted
+ */
+
+int intTostring(int value,char*);
 
 
 #endif
