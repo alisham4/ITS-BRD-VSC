@@ -111,6 +111,7 @@ int duplicate(void){
 int intTostring(int value , char* destination){
    char array[16];
    int len = 15;
+   array[len] = '\0';
    do{
       int digit = value % 10;
       int c = digit + '0';
@@ -118,6 +119,12 @@ int intTostring(int value , char* destination){
       len--;
       value /= 10;
    }while(value != 0);
+
+   int i;
+   for(i =0; array[i] != '\0';i++){
+       destination[i] = array[i];
+   }
+   destination[i] = '\0';
    return SUCCESS;
 }
 
