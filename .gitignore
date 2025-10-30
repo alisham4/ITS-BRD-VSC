@@ -12,5 +12,10 @@
 .AppleDouble
 .LSOverride
 
+.vscode/*
+.clangd
+tmp/
+.ninja_log
+
 # EOF
 
