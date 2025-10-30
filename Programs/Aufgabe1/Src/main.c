@@ -29,7 +29,7 @@ int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
 	GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
 	TP_Init(false);  
-    initDisplay();          // Initialisierung des LCD Boards mit Touch
+  initDisplay();          // Initialisierung des LCD Boards mit Touch
 
   // Begruessungstext	
 	//lcdPrintlnS("Hallo liebes TI-Labor (c-project)");
