@@ -7,9 +7,9 @@ void errorMessage(int error){
     switch(error){
         case -1 : printStdout("Stack Underflow!");
         break;
-        case -2 : lcdPrintlnS("Stack Overflow!");
+        case -2 : printStdout("Stack Overflow!");
         break;
-        case -3 : lcdPrintlnS("Division by zero is not allowed!");
+        case -3 : printStdout("Division by zero is not allowed!");
         break;
     }
 }
