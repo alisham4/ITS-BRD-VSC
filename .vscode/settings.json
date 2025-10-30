@@ -119,5 +119,8 @@
   "clangd.arguments": [
     "--compile-commands-dir=/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug"
   ],
-  "debug.hideSlowPreLaunchWarning": true
+  "debug.hideSlowPreLaunchWarning": true,
+  "files.associations": {
+    "stack.h": "c"
+  }
 }

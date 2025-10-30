@@ -38,44 +38,38 @@ int main(void) {
 
 	// while schleife
 	while(1) {
-        
         //get the next token and push it onto the stack if stack is not full
         T_token t = nextToken();
         int error = SUCCESS;
-
-        if(isFull() == SUCCESS){
-           error = push(&t);
-        }else{
-           error = STACK_OVERFLOW;
+        switch (t.tok) {
+            case NUMBER: error = push(t.val);
+            break;
+            case PLUS: error = add();
+            break;
+            case MINUS: error = sub();
+            break;
+            case MULT: error = mul();
+            break;
+            case DIV: error = div();
+            break;
+            case PRT: error = returnFirst();
+            break;
+            case PRT_ALL: printStack();
+            break;
+            case CLEAR: stackClear();
+            break;
+            case DOUBLE: error =  duplicate();
+            break;
+            case SWAP: error = swap();
+            break;
+            default: printStdout("The operation is undefined");
+            break;
         }
 
-        
-    if(error == SUCCESS){
-       switch (t.tok) {
-        case PLUS : error = add();
-        break;
-        case MINUS : error = sub();
-        break;
-        case MULT : error = mul();
-        break;
-        case DIV : error = div();
-        break;
-		case PRT : error = returnFirst();
-        break;
-		case PRT_ALL : printStack();
-        break;
-		case CLEAR : stackClear();
-        break;
-		case DOUBLE : error =  duplicate();
-		break;
-		case SWAP : error = swap();
-        break;
-        default: printf("The operation is undefined");
-        break;
-    }
-} else{
-    errorMessage(error);
-}
+        if(error != SUCCESS)
+        {
+            errorMessage(error);
+        }
     }    
 }
 

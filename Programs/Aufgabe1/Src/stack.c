@@ -1,6 +1,7 @@
 #include "stack.h"
 #include <stdio.h>
 #include "Errors.h"
+#include "display.h"
 
 #define MAX_SIZE 10
 
@@ -10,12 +11,12 @@ static int num;
 
 
 //PUSH
-int push(int *value){
+int push(int value){
     if(isFull()){
        return STACK_OVERFLOW;
     }else{
        topIndex++;
-       stack[topIndex] = *value;
+       stack[topIndex] = value;
        return SUCCESS;
     }
 }
@@ -31,9 +32,27 @@ int pop(int *value){
     }
 }
 
+int peek(int *value){
+    if(isEmpty()){
+      return STACK_UNDERFLOW;
+    }else{
+      *value = stack[topIndex];
+      return SUCCESS;
+    }
+}
+
 //returnFirst 
 int returnFirst(){
-   return stack[topIndex];
+   int value = 0;
+   int err = peek(&value);
+   if(err) { 
+      return err; 
+   }
+
+   char dest[15];
+   intTostring(value,dest);
+   printStdout(dest);
+   return SUCCESS;
 }
 
 
@@ -56,8 +75,8 @@ int swap(){
      res2 = pop(&num2);
      
      if(res1 == SUCCESS && res2 == SUCCESS){
-      push(&num1);
-      push(&num2);
+      push(num1);
+      push(num2);
       return SUCCESS;
      }else{
       return STACK_UNDERFLOW;
@@ -76,17 +95,32 @@ int duplicate(void){
          return STACK_UNDERFLOW;
       }
       
-      push(&num);
+      push(num);
 
       //check if Stack is not full, then push the duplicate
       if(isFull()==SUCCESS){
-         push(&num);
+         push(num);
          return SUCCESS;
       } else {
          return STACK_OVERFLOW;
       }
       
 }
+
+
+int intTostring(int value , char* destination){
+   char array[16];
+   int len = 15;
+   do{
+      int digit = value % 10;
+      int c = digit + '0';
+      array[len] = c;
+      len--;
+      value /= 10;
+   }while(value != 0);
+   return SUCCESS;
+}
+
 
 /*--------------------------------------------------------------------------------------------
 Helper Methods
