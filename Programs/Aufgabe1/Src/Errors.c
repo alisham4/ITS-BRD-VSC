@@ -1,15 +1,15 @@
-#include "Error.h"
+#include "Errors.h"
 #include "display.h"
-#include "lcd.h"
 
 
 void errorMessage(int error){
     switch(error){
-        case -1 : printStdout("Stack Underflow!");
+        case STACK_UNDERFLOW: printStdout("Stack Underflow!");
         break;
-        case -2 : printStdout("Stack Overflow!");
+        case STACK_OVERFLOW : printStdout("Stack Overflow!");
         break;
-        case -3 : printStdout("Division by zero is not allowed!");
+        case DIVIDE_BY_ZERO_ERROR : printStdout("Division by zero is not allowed!");
         break;
+        case ARITHEMETHIC_OVERFLOW: printStdout("Arithmetic overflow!");
     }
 }

@@ -62,7 +62,7 @@ int duplicate(void);
  * @param the number to be converted
  */
 
-int intTostring(int value,char*);
+int intTostring(int value);
 
 
 #endif

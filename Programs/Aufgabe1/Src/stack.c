@@ -49,22 +49,21 @@ int returnFirst(){
       return err; 
    }
 
-   char dest[15];
-   intTostring(value,dest);
-   printStdout(dest);
+   intTostring(value);
    return SUCCESS;
 }
 
 
 //printStack
 void printStack(void){
-     if(!isEmpty()){
-        for (int i = 0; i <= topIndex; i++){
-            printf("%d\t", stack[i]);
-        }
-     } else{
-        printf("Stack is empty!");
-     }
+   if(!isEmpty()) {
+      for (int i = 0; i <= topIndex; i++) {
+         intTostring(stack[i]);
+      }
+   }
+   else {
+      printStdout("Stack is empty!");
+   }
 }
 
 //swap
@@ -85,46 +84,56 @@ int swap(){
 }
 
 //duplicate
-int duplicate(void){
-      int num;
-      // check if Stack is not empty, then pop a number to duplicate
-      if(isEmpty()==SUCCESS){
-           int res;
-           res = pop(&num);
-      } else {
-         return STACK_UNDERFLOW;
-      }
-      
-      push(num);
+int duplicate(void)
+{
+   int res = 0;
+   int num = 0;
 
-      //check if Stack is not full, then push the duplicate
-      if(isFull()==SUCCESS){
-         push(num);
-         return SUCCESS;
-      } else {
-         return STACK_OVERFLOW;
-      }
-      
+   res = pop(&num);
+   if(res != SUCCESS)
+   {
+      return res;
+   }
+
+   push(num);
+   res = push(num);
+   if(res != SUCCESS)
+   {
+      return res;
+   }
+
+   return SUCCESS;
 }
 
-
-int intTostring(int value , char* destination){
+int intTostring(int value){
    char array[16];
    int len = 15;
    array[len] = '\0';
+   len--;
+   array[len] = '\n';
+   len--;
+   int zahl = value;
    do{
       int digit = value % 10;
+      if(digit < 0) 
+      {
+         digit = -digit;
+      }
+
       int c = digit + '0';
       array[len] = c;
       len--;
       value /= 10;
    }while(value != 0);
 
-   int i;
-   for(i =0; array[i] != '\0';i++){
-       destination[i] = array[i];
+   if(zahl < 0)
+   {
+      array[len] = '-';
+      len--;
    }
-   destination[i] = '\0';
+
+   // (___________1234\0)
+   printStdout(array + len + 1);
    return SUCCESS;
 }
 
@@ -134,11 +143,8 @@ Helper Methods
 */
 
 void stackClear(){
-    for(int i = 0; i< MAX_SIZE; i++){
-       stack[i] = 0;
-    }
-    topIndex = -1;
-    
+   clearStdout();
+   topIndex = -1; 
 }
 
 int isEmpty(void){
