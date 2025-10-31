@@ -28,7 +28,7 @@ int push(int value);
 void  printStack(void);
 
 /**
- * @brief fills the stack with zeros (deletes all entries)
+ * @brief deletes all entries and sets the topIndes to -1
  * @return void
  */
 void stackClear(void);  
@@ -58,7 +58,7 @@ int isFull(void);
 int duplicate(void);
 
 /**
- * @brief int to string 
+ * @brief converts an integer into a string
  * @param the number to be converted
  */
 

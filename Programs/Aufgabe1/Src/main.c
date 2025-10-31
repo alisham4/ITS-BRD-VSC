@@ -36,9 +36,11 @@ int main(void) {
 
 	// while schleife
 	while(1) {
-        //get the next token and push it onto the stack if stack is not full
+
+        //get the next token and push it onto the stack if the token is a number & stack is not full
         T_token t = nextToken();
         int error = SUCCESS;
+        
         switch (t.tok) {
             case NUMBER: error = push(t.val);
             break;

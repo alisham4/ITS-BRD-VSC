@@ -32,6 +32,7 @@ int pop(int *value){
     }
 }
 
+//PEEK
 int peek(int *value){
     if(isEmpty()){
       return STACK_UNDERFLOW;
@@ -41,12 +42,13 @@ int peek(int *value){
     }
 }
 
-//returnFirst 
+//RETURNFIRST 
 int returnFirst(){
    int value = 0;
-   int err = peek(&value);
-   if(err) { 
-      return err; 
+   int res = 0;
+   res = peek(&value);
+   if(res) { 
+      return res; 
    }
 
    intTostring(value);
@@ -54,7 +56,7 @@ int returnFirst(){
 }
 
 
-//printStack
+//PRINTSTACK
 void printStack(void){
    if(!isEmpty()) {
       for (int i = 0; i <= topIndex; i++) {
@@ -66,10 +68,13 @@ void printStack(void){
    }
 }
 
-//swap
+
+//SWAP
 int swap(){
      int num1,num2;
-     int res1,res2;
+     int res1 = 0;
+     int res2 = 0;
+
      res1 = pop(&num1);
      res2 = pop(&num2);
      
@@ -83,28 +88,28 @@ int swap(){
      
 }
 
-//duplicate
+//DUPLICATE
 int duplicate(void)
 {
    int res = 0;
    int num = 0;
 
    res = pop(&num);
-   if(res != SUCCESS)
-   {
+   if(res != SUCCESS){
       return res;
    }
-
    push(num);
+
+   //push second number onto the stack
    res = push(num);
-   if(res != SUCCESS)
-   {
+   if(res != SUCCESS){
       return res;
    }
 
    return SUCCESS;
 }
 
+//INTTOSTRING
 int intTostring(int value){
    char array[16];
    int len = 15;
@@ -117,7 +122,7 @@ int intTostring(int value){
       int digit = value % 10;
       if(digit < 0) 
       {
-         digit = -digit;
+         digit = -digit;         //handling negative numbers
       }
 
       int c = digit + '0';
@@ -126,27 +131,25 @@ int intTostring(int value){
       value /= 10;
    }while(value != 0);
 
-   if(zahl < 0)
-   {
+   if(zahl < 0){
       array[len] = '-';
       len--;
    }
 
-   // (___________1234\0)
+   // (___________1234\0) 
    printStdout(array + len + 1);
    return SUCCESS;
 }
 
 
-/*--------------------------------------------------------------------------------------------
-Helper Methods
-*/
-
+//STACKCLEAR
 void stackClear(){
    clearStdout();
    topIndex = -1; 
 }
 
+
+//ISEMPTY
 int isEmpty(void){
     if(topIndex <= -1){
       return STACK_UNDERFLOW;
@@ -155,6 +158,8 @@ int isEmpty(void){
     }
 }
 
+
+//ISFULL
 int isFull(){
    if(topIndex == MAX_SIZE - 1){
       return STACK_OVERFLOW;
