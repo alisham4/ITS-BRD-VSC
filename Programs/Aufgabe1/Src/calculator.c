@@ -75,24 +75,28 @@ int mul(void){
         return res;
     }
     
+    unsigned int b_abs = b < 0 ? -(unsigned)b : b;
+    unsigned int a_abs = a < 0 ? -(unsigned)a : a;
+    unsigned int min_abs = -(unsigned)INT_MIN;
+
     //check limits
     //case1:
-    if(a > 0 && b > 0 && a > INT_MAX / b)
+    if(a > 0 && b > 0 && a_abs > INT_MAX / b_abs)
     {
         return ARITHEMETHIC_OVERFLOW;
     }
     //case2:
-    if(a > 0 && b < 0 && a > INT_MIN / b)
+    if(a > 0 && b < 0 && a_abs > min_abs / b_abs)
     {
         return ARITHEMETHIC_OVERFLOW;
     }
     //case3:
-    if(a < 0 && b > 0 && a > INT_MIN / b)
+    if(a < 0 && b > 0 && a_abs > min_abs / b_abs)
     {
         return ARITHEMETHIC_OVERFLOW;
     }
     //case4:
-    if(a < 0 && b < 0 && a > INT_MAX / b)
+    if(a < 0 && b < 0 && a_abs > INT_MAX / b_abs)
     {
         return ARITHEMETHIC_OVERFLOW;
     }
@@ -125,7 +129,7 @@ int div(void){
         return ARITHEMETHIC_OVERFLOW;
     }
     //check division by zero
-    if(number2 != 0){
+    if(number1 != 0){
         int answer = number2 / number1;
         push(answer);
         return SUCCESS;
