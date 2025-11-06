@@ -1,0 +1,6 @@
+{
+    "debug.hideSlowPreLaunchWarning": true,
+    "clangd.arguments": [
+        "--compile-commands-dir=/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe2/out/Aufgabe2/ITSboard/Debug"
+    ]
+}
