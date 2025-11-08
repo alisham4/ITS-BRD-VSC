@@ -1,10 +1,2 @@
 #include "readInput.h"
 #include <stdio.h>
-
-int phase_array[4][4] = {
-    {NO_CHANGE,FORWARD,ERROR_EVT,BACKWARD},
-    {BACKWARD,NO_CHANGE,FORWARD,ERROR_EVT},
-    {ERROR_EVT,BACKWARD,NO_CHANGE,FORWARD},
-    {FORWARD,ERROR_EVT,BACKWARD,NO_CHANGE}
-
-};
