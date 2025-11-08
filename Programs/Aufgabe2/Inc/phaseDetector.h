@@ -9,9 +9,9 @@
 #define PHASE_D 3
 
 //PHASE CHANGES
-#define NO_CHANGE X
-#define FORWARD   F
-#define BACKWARD  B
-#define ERROR_EVT E
+#define NO_CHANGE 'X'
+#define FORWARD   'F'
+#define BACKWARD  'B'
+#define ERROR_EVT 'E'
 
 #endif
