@@ -172,12 +172,16 @@ project:
     - group: Program/User/Inc
       files:
         - file: ../../ITS_BRD_LIB/Inc/lcd.h
+        - file: Inc/pins.h
+        - file: Inc/leds.h
 
 
     # Benutzerdefinierte Programmdateien
     - group: Program/User/Src
       files:
         - file: Src/main.c
+        - file: Src/pins.c
+        - file: Src/leds.c
 
 
   components:
