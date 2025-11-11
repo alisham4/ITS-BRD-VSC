@@ -1,8 +1,7 @@
 build-idx:
-  generated-by: csolution version 2.11.0
+  generated-by: csolution version 2.12.0
   cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
   csolution: Aufgabe2.csolution.yml
-  cbuild-run: out/Aufgabe2+ITSboard.cbuild-run.yml
   tmpdir: tmp
   cprojects:
     - cproject: Aufgabe2.cproject.yml
@@ -11,10 +10,11 @@ build-idx:
       project: Aufgabe2
       configuration: .Debug+ITSboard
       messages:
+        errors:
+          - Aufgabe2.cproject.yml:187:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe2/Src/phaseDetector.c' was not found
         info:
           - Aufgabe2.cbuild-pack.yml - file is already up-to-date
-          - Aufgabe2+ITSboard.cbuild-run.yml - file is already up-to-date
-          - Aufgabe2.Debug+ITSboard.cbuild.yml - file is already up-to-date
+          - Aufgabe2.Debug+ITSboard.cbuild.yml - file generated successfully
       packs-unused:
         - pack: ARM::CMSIS-DSP@1.16.2
         - pack: ARM::CMSIS-NN@7.0.0

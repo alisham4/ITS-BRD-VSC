@@ -172,8 +172,10 @@ project:
     - group: Program/User/Inc
       files:
         - file: ../../ITS_BRD_LIB/Inc/lcd.h
+        - file: Inc/main.h
         - file: Inc/pins.h
         - file: Inc/leds.h
+        - file: Inc/phaseDetector.h
 
 
     # Benutzerdefinierte Programmdateien
@@ -182,6 +184,7 @@ project:
         - file: Src/main.c
         - file: Src/pins.c
         - file: Src/leds.c
+        - file: Src/phaseDetector.c
 
 
   components:

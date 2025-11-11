@@ -1,0 +1,16 @@
+#ifndef PHASEDETECTOR_H
+#define PHASEDETECTOR_H
+
+#define FORWARD   'F'
+#define BACKWARD  'B'
+#define NO_CHANGE 'X'
+#define ERROR_    'E'
+
+char phaseArray[4][4] = {
+    {NO_CHANGE, BACKWARD, ERROR_, FORWARD},
+    {FORWARD, NO_CHANGE, BACKWARD, ERROR_},
+    {ERROR_, FORWARD, NO_CHANGE, BACKWARD},
+    {BACKWARD, ERROR_, FORWARD, NO_CHANGE}
+};
+
+#endif
