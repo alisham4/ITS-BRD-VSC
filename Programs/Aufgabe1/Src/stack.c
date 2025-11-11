@@ -50,7 +50,8 @@ int returnFirst(){
    if(res) { 
       return res; 
    }
-
+   
+   //covert int to string
    intTostring(value);
    return SUCCESS;
 }
@@ -58,7 +59,7 @@ int returnFirst(){
 
 //PRINTSTACK
 void printStack(void){
-   if(!isEmpty()) {
+   if(!isEmpty()){
       for (int i = 0; i <= topIndex; i++) {
          intTostring(stack[i]);
       }
@@ -100,7 +101,7 @@ int duplicate(void)
    }
    push(num);
 
-   //push second number onto the stack
+   //push second number onto the stack if stack is not full
    res = push(num);
    if(res != SUCCESS){
       return res;

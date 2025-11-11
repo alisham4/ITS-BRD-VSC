@@ -1,8 +1,6 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
-#include <stdio.h>
-
 
 /**
 * @brief adds two numbers

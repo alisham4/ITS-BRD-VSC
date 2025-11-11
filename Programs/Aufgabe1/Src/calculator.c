@@ -10,18 +10,18 @@ int add(void){
     int b = 0;
 
     res = pop(&a);
-    if(res!= SUCCESS) {
+    if(res!= SUCCESS){
          return res; 
     }
     
     res = pop(&b);
-    if(res != SUCCESS) { 
+    if(res != SUCCESS){ 
         return res;
     }
      
-    //check limits
+    //check limits (Integer Overflow?)
     if ((b > 0 && a > INT_MAX - b) ||
-        (b < 0 && a < INT_MIN - b)) {
+        (b < 0 && a < INT_MIN - b)){
         return ARITHEMETHIC_OVERFLOW;
     }
 
@@ -38,18 +38,18 @@ int sub(void){
     int b = 0;
 
     res = pop(&b);
-    if(res != SUCCESS) {
+    if(res != SUCCESS){
         return res;
      }
     
     res = pop(&a);
-    if(res != SUCCESS) {
+    if(res != SUCCESS){
        return res;
     }
     
-    //check limits
+    //check limits (Integer Underflow?)
     if ((b > 0 && a < INT_MIN + b) ||
-        (b < 0 && a > INT_MAX + b)) {
+        (b < 0 && a > INT_MAX + b)){
         return ARITHEMETHIC_OVERFLOW;
     }
 
@@ -66,12 +66,12 @@ int mul(void){
     int b = 0;
 
     res = pop(&a);
-    if(res != SUCCESS) {
+    if(res != SUCCESS){
         return res;
     }
     
     res = pop(&b);
-    if(res != SUCCESS) {
+    if(res != SUCCESS){
         return res;
     }
     
@@ -79,25 +79,21 @@ int mul(void){
     unsigned int a_abs = a < 0 ? -(unsigned)a : a;
     unsigned int min_abs = -(unsigned)INT_MIN;
 
-    //check limits
+    //check limits (Overflow?)
     //case1:
-    if(a > 0 && b > 0 && a_abs > INT_MAX / b_abs)
-    {
+    if(a > 0 && b > 0 && a_abs > INT_MAX / b_abs){
         return ARITHEMETHIC_OVERFLOW;
     }
     //case2:
-    if(a > 0 && b < 0 && a_abs > min_abs / b_abs)
-    {
+    if(a > 0 && b < 0 && a_abs > min_abs / b_abs){
         return ARITHEMETHIC_OVERFLOW;
     }
     //case3:
-    if(a < 0 && b > 0 && a_abs > min_abs / b_abs)
-    {
+    if(a < 0 && b > 0 && a_abs > min_abs / b_abs){
         return ARITHEMETHIC_OVERFLOW;
     }
     //case4:
-    if(a < 0 && b < 0 && a_abs > INT_MAX / b_abs)
-    {
+    if(a < 0 && b < 0 && a_abs > INT_MAX / b_abs){
         return ARITHEMETHIC_OVERFLOW;
     }
 
@@ -114,18 +110,17 @@ int div(void){
     int number2 = 0;
 
     res = pop(&number1);
-    if(res != SUCCESS) {
+    if(res != SUCCESS){
         return res; 
     }
     
     res = pop(&number2);
-    if(res != SUCCESS) {
+    if(res != SUCCESS){
         return res; 
     }
     
-    //check limits
-    if(number2 == INT_MIN && number1 == -1)
-    {
+    //check limits (Overflow/Underflow?)
+    if(number2 == INT_MIN && number1 == -1){
         return ARITHEMETHIC_OVERFLOW;
     }
     //check division by zero

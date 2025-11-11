@@ -1,5 +1,3 @@
-
-
 #ifndef ERRORS_H
 #define ERRORS_H
 
@@ -13,7 +11,6 @@
 * @brief prints error message on the display
 * @param int 
  */
-
 void errorMessage(int error);
 
 #endif
