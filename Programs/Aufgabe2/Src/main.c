@@ -23,12 +23,20 @@ int main(void) {
 	GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
 	TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
 
-  // Begruessungstext	
-	lcdPrintlnS("Hallo liebes TI-Labor (c-project)");
+ 
 	
 	// Test in Endlosschleife
 	while(1) {
 		HAL_Delay(10000);
+
+		//Direct Digital Control Concept 
+
+		//read input 
+
+		//update phase 
+
+		//output
+
 	}
 }
 

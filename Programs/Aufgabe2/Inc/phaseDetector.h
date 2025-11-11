@@ -11,6 +11,8 @@
 #define PHASE_C 2
 #define PHASE_D 3
 
+#define STEP_COUNTER 0
+
 char phaseArray[4][4] = {
     {NO_CHANGE, BACKWARD, ERROR_, FORWARD},
     {FORWARD, NO_CHANGE, BACKWARD, ERROR_},
@@ -30,5 +32,10 @@ int get_single_phase();
  * @return char
  */
 char get_result_Phase();
+
+/**
+ * @brief determines what happens at current state
+ */
+void phase_Output();
 
 #endif
