@@ -18,6 +18,8 @@ void LED_OFF(int mask){
     GPIOE->BSRR = mask << 16;
 }
 
+
+//CALCULATION OF 8 BIT BINARY NUMBERS
 void step_Counter_Output(int stepCounter){
     // array to store binary number
     int length=8;

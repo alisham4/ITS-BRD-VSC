@@ -45,6 +45,8 @@ int get_single_phase(){
 
     }
 
+    
+    //INCREASE COUNTER
     int counter(char phaseChange){
         
         if(phaseChange==FORWARD || phaseChange==BACKWARD) {
