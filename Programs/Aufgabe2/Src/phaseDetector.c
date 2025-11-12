@@ -2,6 +2,7 @@
 #include "leds.h"
 #include "pins.h"
 
+int stepCounter = 0; 
 
 //GET SINGLE RESULT
 int get_single_phase(){
@@ -36,29 +37,22 @@ int get_single_phase(){
         phase1 = get_single_phase();
         phase2 = get_single_phase();
 
-        return phaseArray[phase1][phase2];
+        char phaseChange = phaseArray[phase1][phase2];
+
+        counter(phaseChange);
+
+        return phaseChange;
 
     }
 
-    //PHASE OUTOUT 
-    void phase_Output(){
-        char currentState = get_result_Phase();
-
-        //???methods for each state 
-        switch (currentState) {
-            // case BACKWARD -> LED22 on 
-            case BACKWARD : LED_ON(BSRR_LED22_MASK);
-            break;
-            //case FORWARD -> LED23 on
-            case FORWARD : LED_ON(BSRR_LED23_MASK);
-            break;
-            //case ERROR -> LED21 on 
-            case ERROR_ : LED_ON(BSRR_LED21_MASK);
-            break; 
-            //case NO_CHANGE ??
-            case NO_CHANGE : 
-            break;
+    int counter(char phaseChange){
+        
+        if(phaseChange==FORWARD || phaseChange==BACKWARD) {
+            stepCounter++;
         }
+        return stepCounter;
     }
+
+ 
 
 
