@@ -28,6 +28,15 @@ int get_single_phase(){
     }
 
 
+
+char phaseArray[4][4] = {
+    {NO_CHANGE, BACKWARD, ERROR_, FORWARD},
+    {FORWARD, NO_CHANGE, BACKWARD, ERROR_},
+    {ERROR_, FORWARD, NO_CHANGE, BACKWARD},
+    {BACKWARD, ERROR_, FORWARD, NO_CHANGE}
+};
+
+
     //GET FINAL RESUlT
     char get_result_Phase(){
 

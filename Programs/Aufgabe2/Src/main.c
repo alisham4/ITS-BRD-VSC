@@ -67,12 +67,10 @@ int main(void) {
         switch (currentState) {
             // case BACKWARD -> LED22 on 
             case BACKWARD : LED_ON(BSRR_LED22_MASK);
-                            step_Counter_Output(stepCounter);
             break;
             //case FORWARD -> LED23 on
             case FORWARD : LED_ON(BSRR_LED23_MASK);
-                            step_Counter_Output(stepCounter);
-            break;
+			break;
             //case ERROR -> LED21 on 
             case ERROR_ : LED_ON(BSRR_LED21_MASK);
             break; 
