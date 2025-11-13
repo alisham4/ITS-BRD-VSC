@@ -19,6 +19,8 @@
 #include "leds.h"
 #include "phaseDetector.h"
 #include "timer.h"
+#include <stddef.h>
+#include <stdint.h>
 
 extern int stepCounter;
 
@@ -31,24 +33,31 @@ int main(void) {
   //initialize timer 
   initTimer();  
  
+
+  uint32_t startTime;
 	
 	// Test in Endlosschleife
 	while(1) {
 		HAL_Delay(10000);
 
 		//Direct Digital Control Concept 
-    //enable timer 
-    int currentTimeUpdate ; 
+
 		//read input 
+    startTime = getTimeStamp();
+    
 		readPinA();
 
 		readPinB();
 
+    
+
 		//update phase 
 
 		//output
-		  
+    
         char currentState = get_result_Phase();
+        char nextState;
+
         // 
         switch (currentState) {
             // case BACKWARD -> LED22 on 

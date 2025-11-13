@@ -1,5 +1,4 @@
 #include "leds.h"
-#include "stm32f4xx_hal.h"
 #include "stm32f429xx.h"
 
 
@@ -33,7 +32,7 @@ void step_Counter_Output(int stepCounter){
         i++;
     }
 
-    for(int binaryNumIndex = length; binaryNumIndex>=0; binaryNumIndex--){
-        
-    }
+    int offset = 0; 
+
+  //ausgabe fehlt 
 }
