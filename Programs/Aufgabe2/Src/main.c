@@ -15,6 +15,7 @@
 #include "fontsFLASH.h"
 #include "additionalFonts.h"
 #include "error.h"
+#include "timer.h"
 
 
 int main(void) {
@@ -29,6 +30,7 @@ int main(void) {
 	// Test in Endlosschleife
 	while(1) {
 		HAL_Delay(10000);
+		int currentTime = getTimeStamp();
 	}
 }
 
