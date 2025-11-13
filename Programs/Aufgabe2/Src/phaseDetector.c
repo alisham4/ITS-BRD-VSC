@@ -38,17 +38,22 @@ int get_single_phase(){
         phase2 = get_single_phase();
 
         char phaseChange = phaseArray[phase1][phase2];
-
+        //increase or decrease counter
         counter(phaseChange);
 
         return phaseChange;
 
     }
 
+    
+    //COUNTER
     int counter(char phaseChange){
         
-        if(phaseChange==FORWARD || phaseChange==BACKWARD) {
+        if(phaseChange == FORWARD){
             stepCounter++;
+        }
+        if(phaseChange == BACKWARD){
+            stepCounter--;
         }
         return stepCounter;
     }
