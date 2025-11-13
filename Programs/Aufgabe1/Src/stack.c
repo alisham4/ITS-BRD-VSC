@@ -4,6 +4,7 @@
 #include "display.h"
 
 #define MAX_SIZE 10
+#define MAX_BINARY_NUM 16
 
 int stack[MAX_SIZE];
 static int topIndex = -1;
@@ -112,8 +113,8 @@ int duplicate(void)
 
 //INTTOSTRING
 int intTostring(int value){
-   char array[16];
-   int len = 15;
+   char array[MAX_BINARY_NUM];
+   int len = MAX_BINARY_NUM-1;
    array[len] = '\0';
    len--;
    array[len] = '\n';
