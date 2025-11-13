@@ -7,6 +7,7 @@
   */
 /* Includes ------------------------------------------------------------------*/
 
+#include "calculator.h"
 #include "stm32f4xx_hal.h"
 #include "init.h"
 #include "LCD_GUI.h"
@@ -15,13 +16,14 @@
 #include "fontsFLASH.h"
 #include "additionalFonts.h"
 #include "error.h"
-#include "pins.h"
+#include "input.h"
 #include "leds.h"
 #include "phaseDetector.h"
 #include "timer.h"
 #include <stddef.h>
 #include <stdint.h>
 
+#define TIMER_CONT (1000 * TICKS_PER_US)
 extern int stepCounter;
 
 int main(void) {
@@ -33,8 +35,13 @@ int main(void) {
   //initialize timer 
   initTimer();  
  
-
+  uint32_t lastTime = 0;
   uint32_t startTime;
+  double angle;
+  bool buttonPressed = false;
+  double angle1;
+  double angle2;
+
 	
 	// Test in Endlosschleife
 	while(1) {
@@ -42,23 +49,21 @@ int main(void) {
 
 		//Direct Digital Control Concept 
 
-		//read input 
-    startTime = getTimeStamp();
+		//read input (pins and time)
+        startTime = getTimeStamp();
     
 		readPinA();
-
 		readPinB();
 
-    
-
-		//update phase 
-
-		//output
+		if(checkButtonS6()){
+		   buttonPressed = true;
+		};
+	
     
         char currentState = get_result_Phase();
         char nextState;
 
-        // 
+        //update phase 
         switch (currentState) {
             // case BACKWARD -> LED22 on 
             case BACKWARD : LED_ON(BSRR_LED22_MASK);
@@ -75,7 +80,17 @@ int main(void) {
             case NO_CHANGE : 
             break;
         }
-     
+        
+		//check if 250ms have passed
+		if((startTime - lastTime) > 250 * TIMER_CONT)
+		{
+			// 250 ms passed
+			lastTime = startTime;
+			//update angular velocity
+			get_angular_velocity(angle1,angle2,startTime,lastTime);
+		}
 
+		//output (turn leds on according to stepCounter) 
+        GPIOD->ODR = stepCounter & 0xFF;
 	}
 }

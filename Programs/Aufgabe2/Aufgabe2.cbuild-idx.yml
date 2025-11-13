@@ -11,9 +11,9 @@ build-idx:
       configuration: .Debug+ITSboard
       messages:
         errors:
-          - Aufgabe2.cproject.yml:175:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe2/Inc/leds.h' was not found
-          - Aufgabe2.cproject.yml:177:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe2/Inc/phaseDetector.h' was not found
           - Aufgabe2.cproject.yml:176:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe2/Inc/pins.h' was not found
+          - Aufgabe2.cproject.yml:188:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe2/Src/calculator.c' was not found
+          - Aufgabe2.cproject.yml:186:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe2/Src/pins.c' was not found
         info:
           - Aufgabe2.cbuild-pack.yml - file is already up-to-date
           - Aufgabe2.Debug+ITSboard.cbuild.yml - file generated successfully

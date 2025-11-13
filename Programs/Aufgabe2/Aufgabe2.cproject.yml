@@ -175,6 +175,7 @@ project:
         - file: Inc/leds.h
         - file: Inc/pins.h
         - file: Inc/phaseDetector.h
+        - file: Inc/calculator.h
 
 
     # Benutzerdefinierte Programmdateien
@@ -184,6 +185,7 @@ project:
         - file: Src/leds.c 
         - file: Src/pins.c
         - file: Src/phaseDetector.c
+        - file: Src/calculator.c
 
 
   components:

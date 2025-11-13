@@ -1,6 +1,6 @@
 #include "phaseDetector.h"
 #include "leds.h"
-#include "pins.h"
+#include "input.h"
 
 int stepCounter = 0; 
 
