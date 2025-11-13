@@ -176,7 +176,7 @@ project:
         - file: Inc/pins.h
         - file: Inc/leds.h
         - file: Inc/phaseDetector.h
-
+        - file: Inc/timer.h
 
     # Benutzerdefinierte Programmdateien
     - group: Program/User/Src
