@@ -4,7 +4,7 @@
 
 //LED ON
 void LED_ON(int mask){
-    // clear all LED, before turn
+    // clear all LEDs, before turning on
     LED_OFF(BSRR_LED21_MASK);
     LED_OFF(BSRR_LED22_MASK);
     LED_OFF(BSRR_LED23_MASK);

@@ -35,12 +35,15 @@ int main(void) {
   //initialize timer 
   initTimer();  
  
+  //initialize variables and arrays
   uint32_t lastTime = 0;
   uint32_t startTime;
   double angle;
   bool buttonPressed = false;
-  double angle1;
-  double angle2;
+  double angle1,angle2;
+  char currentState;
+  char nextState;
+  double omega;
 
 	
 	// Test in Endlosschleife
@@ -60,8 +63,7 @@ int main(void) {
 		};
 	
     
-        char currentState = get_result_Phase();
-        char nextState;
+        currentState = get_result_Phase();
 
         //update phase 
         switch (currentState) {
@@ -85,7 +87,9 @@ int main(void) {
 			// 250 ms passed
 			lastTime = startTime;
 			//update angular velocity
-			get_angular_velocity(angle1,angle2,startTime,lastTime);
+			omega = get_angular_velocity(angle1,angle2,startTime,lastTime);
+            updateDisplayValues(angle, omega);
+        
 		}
 
 		//output (turn leds on according to stepCounter) 

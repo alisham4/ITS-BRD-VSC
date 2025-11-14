@@ -2,36 +2,48 @@
 #include "lcd.h"
 #include <stdio.h>
 
-double omega;
-void get_angular_velocity(double angle1,double angle2, int lasttime,int currenttime){
 
-    omega = (angle1-angle2)/(lasttime-currenttime);
+ 
 
-    
+//ANGULAR VELOCITY
+double get_angular_velocity(double angle1, double angle2, uint32_t lastTime, uint32_t currentTime)
+{
+    return (angle2 - angle1) / (currentTime - lastTime);
 }
 
-void print(double angle, double angular_velocity){
-    static int pos = 0;
+
+//PRINT ANGLE & ANGULAR VELOCITY ON DISPLAY
+void refreshDisplay(char *array, char *arrayCopy, int maxLength, int row, int startCol, int *pos){
+
+    if (array[*pos] != arrayCopy[*pos]) {
+        lcdGotoXY(startCol + *pos, row);
+        lcdPrintC(array[*pos]);
+        arrayCopy[*pos] = array[*pos];
+    }
+
+    (*pos)++;
+    if (*pos == maxLength) {
+        *pos = 0;
+    }
+}
+
+//WRITE ANGLE AND VELOCITY INTO AN ARRAY 
+void updateDisplayValues(double angle, double angular_velocity){
+
+    int posAngle = 0;
+    int posVelocity = 0;
 
     char angle_array[MAX_ANGLE_LENGTH];
     char angle_arrayCopy[MAX_ANGLE_LENGTH];
+
     char angular_velocity_array[MAX_ANGULAR_VElOCITY];
-    
-    if(pos == 0)
-    {
-        snprintf(angle_array, MAX_ANGLE_LENGTH, "%6.1f", angle);
-    }
+    char angular_velocity_arrayCopy[MAX_ANGULAR_VElOCITY]; 
 
-    if(angle_array[pos] != angle_arrayCopy[pos])
-    {
-        lcdGotoXY(15 + pos, 2);
-        lcdPrintC(angle_array[pos]);
-        angle_arrayCopy[pos] = angle_array[pos];
-    }
+    snprintf(angle_array, MAX_ANGLE_LENGTH, "%6.1f", angle);
+    snprintf(angular_velocity_array, MAX_ANGULAR_VElOCITY, "%6.1f", angular_velocity);
 
-    pos++;
-    if(pos == MAX_ANGLE_LENGTH)
-    {
-        pos = 0;
-    }
+    refreshDisplay(angle_array, angle_arrayCopy, MAX_ANGLE_LENGTH, 2, 15, &posAngle);
+    refreshDisplay(angular_velocity_array, angular_velocity_arrayCopy, MAX_ANGULAR_VElOCITY, 1, 15, &posVelocity);
 }
+
+
