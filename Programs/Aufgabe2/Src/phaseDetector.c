@@ -26,7 +26,7 @@ int get_single_phase(){
     }else if (res_PinA == 1 && res_PinB == 0){
         phase = PHASE_B;
        }else if (res_PinA == 1 && res_PinB == 1){
-        phase = PHASE_B;
+        phase = PHASE_C;
        }else{
         phase = PHASE_D;
        }

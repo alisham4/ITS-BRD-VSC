@@ -55,8 +55,8 @@ int main(void) {
 		//read input (pins and time)
         startTime = getTimeStamp();
     
-		readPinA();
-		readPinB();
+		//readPinA();
+		//readPinB();
 
 		if(checkButtonS6()){
 		   buttonPressed = true;
