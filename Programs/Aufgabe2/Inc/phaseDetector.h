@@ -22,7 +22,7 @@ int get_single_phase();
  * @brief determines resulting phase after reading input A and B
  * @return char
  */
-char get_result_Phase();
+char get_result_transition();
 
 /**
  * @brief determines what happens at current state

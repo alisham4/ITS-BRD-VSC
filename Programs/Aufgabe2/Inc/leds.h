@@ -6,9 +6,9 @@
 #define LED_BACKWARD D22
 #define LED_ERROR D21
 
-#define BSRR_LED23_MASK (0x01 << (15))
-#define BSRR_LED22_MASK (0x01 << (14))
-#define BSRR_LED21_MASK (0x01 << (13))
+#define BSRR_LED23_MASK (0x01 << (7))
+#define BSRR_LED22_MASK (0x01 << (6))
+#define BSRR_LED21_MASK (0x01 << (5))
 
 /**
  * @brief turns LEDs with the given mask on

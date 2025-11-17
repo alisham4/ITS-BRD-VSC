@@ -22,6 +22,7 @@
 #include "timer.h"
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #define TIMER_CONT (1000 * TICKS_PER_US)
 extern int stepCounter;
@@ -42,13 +43,13 @@ int main(void) {
   bool buttonPressed = false;
   double angle1,angle2;
   char currentState;
-  char nextState;
+  //char nextState;
   double omega;
 
 	
 	// Test in Endlosschleife
 	while(1) {
-		HAL_Delay(10000);
+		//HAL_Delay(10000);
 
 		//Direct Digital Control Concept 
 
@@ -60,9 +61,10 @@ int main(void) {
 
 		if(checkButtonS6()){
 		   buttonPressed = true;
+           LED_OFF(BSRR_LED21_MASK);
 		};
 	
-    
+        printf("jetzt wird die phase gelesen");
         currentState = get_result_Phase();
 
         //update phase 
@@ -93,6 +95,6 @@ int main(void) {
 		}
 
 		//output (turn leds on according to stepCounter) 
-        GPIOD->ODR = stepCounter & 0xFF;
+        GPIOD->BSRR = stepCounter & 0xFF;
 	}
 }

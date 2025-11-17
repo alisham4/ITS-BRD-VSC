@@ -1,14 +1,20 @@
 #include "phaseDetector.h"
 #include "leds.h"
 #include "input.h"
+#include <stddef.h>
+#include <stdio.h>
 
 int stepCounter = 0; 
 
+static int phaseOld = NULL;
+
+int phaseAktuell = NULL;
+
 char phaseArray[4][4] = {
-    {NO_CHANGE, BACKWARD, ERROR_, FORWARD},
-    {FORWARD, NO_CHANGE, BACKWARD, ERROR_},
-    {ERROR_, FORWARD, NO_CHANGE, BACKWARD},
-    {BACKWARD, ERROR_, FORWARD, NO_CHANGE}
+    {NO_CHANGE, FORWARD, ERROR_, BACKWARD},
+    {BACKWARD, NO_CHANGE, FORWARD, ERROR_},
+    {ERROR_, BACKWARD, NO_CHANGE, FORWARD},
+    {FORWARD, ERROR_, BACKWARD, NO_CHANGE}
 };
 
 //GET SINGLE RESULT
@@ -30,26 +36,32 @@ int get_single_phase(){
        }else{
         phase = PHASE_D;
        }
-
+       printf("single phase ist gesetzt");
        return phase;
     }
 
 
     //GET FINAL RESUlT
-    char get_result_Phase(){
-
-        int phase1;
-        int phase2;
+    char get_result_transition(){
         
-        phase1 = get_single_phase();
-        phase2 = get_single_phase();
+        if(phaseOld==NULL) {
+            phaseAktuell = get_single_phase();
+            phaseOld=phaseAktuell;
 
-        char phaseChange = phaseArray[phase1][phase2];
-        //increase or decrease counter
-        counter(phaseChange);
+            return NO_CHANGE;
+        } else {
+            phaseAktuell = get_single_phase();
 
-        return phaseChange;
+            char phaseChange = phaseArray[phaseOld][phaseAktuell];
+            //increase or decrease counter
+            counter(phaseChange);
+            phaseOld = phaseAktuell;
 
+
+            return phaseChange;
+
+        }
+       
     }
 
     

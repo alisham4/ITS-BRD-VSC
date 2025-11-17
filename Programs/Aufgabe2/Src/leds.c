@@ -8,7 +8,7 @@ void LED_ON(int mask){
     LED_OFF(BSRR_LED21_MASK);
     LED_OFF(BSRR_LED22_MASK);
     LED_OFF(BSRR_LED23_MASK);
-
+    //mask = 6;
     GPIOE->BSRR = mask;
 }
 
