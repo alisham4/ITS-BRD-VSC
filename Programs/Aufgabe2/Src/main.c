@@ -65,7 +65,7 @@ int main(void) {
 		};
 	
         printf("jetzt wird die phase gelesen");
-        currentState = get_result_Phase();
+        currentState = get_result_transition();
 
         //update phase 
         switch (currentState) {
