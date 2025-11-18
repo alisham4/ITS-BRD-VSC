@@ -6,9 +6,9 @@
 
 int stepCounter = 0; 
 
-static int phaseOld = NULL;
+static int phaseOld = -1;
 
-int phaseAktuell = NULL;
+int phaseAktuell = -1;
 
 char phaseArray[4][4] = {
     {NO_CHANGE, FORWARD, ERROR_, BACKWARD},
@@ -44,7 +44,7 @@ int get_single_phase(){
     //GET FINAL RESUlT
     char get_result_transition(){
         
-        if(phaseOld==NULL) {
+        if(phaseOld == -1 ) {
             phaseAktuell = get_single_phase();
             phaseOld=phaseAktuell;
 
