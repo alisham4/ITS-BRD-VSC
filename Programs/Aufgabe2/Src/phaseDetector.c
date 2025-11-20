@@ -5,9 +5,7 @@
 #include <stdio.h>
 
 int stepCounter = 0; 
-
-static int phaseOld = -1;
-
+int phaseOld = -1;
 int phaseAktuell = -1;
 
 char phaseArray[4][4] = {
@@ -25,7 +23,7 @@ int get_single_phase(){
     int phase;
 
     res_PinA = readPinA();
-    res_PinB = readPinB();
+    res_PinB = readPinB();  
 
     if(res_PinA == 0 && res_PinB == 0){
        phase = PHASE_A;
@@ -36,24 +34,22 @@ int get_single_phase(){
        }else{
         phase = PHASE_D;
        }
-       printf("single phase ist gesetzt");
        return phase;
     }
 
 
     //GET FINAL RESUlT
-    char get_result_transition(){
+    char get_result_transition(int phaseAktuell){
         
         if(phaseOld == -1 ) {
-            phaseAktuell = get_single_phase();
             phaseOld=phaseAktuell;
 
             return NO_CHANGE;
         } else {
-            phaseAktuell = get_single_phase();
+            
 
             char phaseChange = phaseArray[phaseOld][phaseAktuell];
-            //increase or decrease counter
+           //                                                                                           increase or decrease counter
             counter(phaseChange);
             phaseOld = phaseAktuell;
 
