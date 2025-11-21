@@ -13,22 +13,21 @@
 
 /**
  * @brief determines single phase
- * @return int
+ * @return int single phase (A,B,C,D)
  */
 int get_single_phase();
 
 
 /**
- * @brief determines resulting phase after reading input A and B
- * @return char
+ * @brief determines resulting transition after reading input A and B
+ * @return char transition (F,B,X,E)
  */
 char get_result_transition(int phaseAktuell);
 
 /**
- * @brief determines what happens at current state
+ * @brief updates the counter => Forward = counter++ , Backward = counter-- , nothing otherwise
+ * @param char
  */
-void phase_Output();
-
 int counter(char phaseChange);
 
 #endif

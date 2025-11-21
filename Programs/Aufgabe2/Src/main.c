@@ -28,47 +28,41 @@
 extern int stepCounter, phaseOld;
 
 int main(void) {
-	initITSboard();    // Initialisierung des ITS Boards
+  initITSboard();    // Initialisierung des ITS Boards
 	
-	GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
-	TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
-
+  GUI_init(DEFAULT_BRIGHTNESS);   
+  TP_Init(false);                 
 
 
   //initialize timer 
   initTimer();  
  
-  //initialize variables and arrays
+  //initialize variables 
   uint32_t lastTime = 0;
   uint32_t startTime = 0;
   double angle = 0.0;
   bool buttonPressed = false;
   double lastAngle = 0.0;
   char currentState = NO_CHANGE;
-  //char nextState;
   double omega = 0.0;
+  int phaseCurrent = 0;
 
-  int phaseAktuell = 0;
-
-    lcdGotoXY(1,1);
-    lcdPrintS("Winkelgeschindigkeit: ");
-    lcdGotoXY(1, 3);
-    lcdPrintS("Winkel: ");
+  //print text on display
+  lcdGotoXY(1,1);
+  lcdPrintS("Angular Velocity: ");
+  lcdGotoXY(1, 3);
+  lcdPrintS("Angle: ");
 	
 	// Test in Endlosschleife
 	while(1) {
-		//HAL_Delay(10000);
 
-		//Direct Digital Control Concept 
-
-		//read input (pins and time)
+		//read input 
         startTime = getTimeStamp();
         buttonPressed = checkButtonS6();
-        phaseAktuell = get_single_phase();
+        phaseCurrent = get_single_phase();
 
-		//readPinA();
-		//readPinB();
 
+        //update phase 
         if(currentState == ERROR_)
         {
             if(buttonPressed){
@@ -79,35 +73,32 @@ int main(void) {
             }
         }
         else {
-            currentState = get_result_transition(phaseAktuell);
+            currentState = get_result_transition(phaseCurrent);
         }
-
-        //update phase 
+        
+        //turn leds on according to phaseChange
         switch (currentState) {
             // case BACKWARD -> LED22 on 
             case BACKWARD : LED_ON(BSRR_LED22_MASK);
-                            //stepCounter--;
             break;
             //case FORWARD -> LED23 on
             case FORWARD : LED_ON(BSRR_LED23_MASK);
-                           //stepCounter++;
 			break;
             //case ERROR -> LED21 on 
             case ERROR_ : LED_ON(BSRR_LED21_MASK);
             break; 
-            //case NO_CHANGE ??
+            //case NO_CHANGE 
             case NO_CHANGE : 
             break;
         }
  
         
-		//check if 250ms have passed
+		//check timer
         angle = stepCounter * 0.3;
         uint32_t time_diff = startTime - lastTime;
 		if((time_diff > 250 * TIMER_CONT && currentState != NO_CHANGE) ||
             time_diff > 500 * TIMER_CONT)
 		{
-			// 250 ms passed
 			//update angular velocity
 			omega = get_angular_velocity(angle - lastAngle, time_diff / (1000.0 * TIMER_CONT));
             lastTime = startTime;

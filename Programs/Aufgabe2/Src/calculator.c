@@ -2,19 +2,21 @@
 #include "lcd.h"
 #include <stdio.h>
 
+//initialize arrays
 static char angle_arrayCurrent[MAX_ANGLE_LENGTH];
 static char angle_arrayOld[MAX_ANGLE_LENGTH];
 static char angular_velocity_arrayCurrent[MAX_ANGULAR_VElOCITY];
 static char angular_velocity_arrayOld[MAX_ANGULAR_VElOCITY]; 
 
-//ANGULAR VELOCITY
+
+//caculation of angular velocity
 double get_angular_velocity(double angle, double time)
 {
     return (angle) / (time);
 }
 
 
-//PRINT ANGLE & ANGULAR VELOCITY ON DISPLAY
+//print a single character onto the display
 void refreshDisplay(char *angle_arrayCurrent, char *angle_arrayOld, int maxLength, int row, int startCol, int *index){
 
     if (angle_arrayCurrent[*index] != angle_arrayOld[*index]) {
@@ -29,7 +31,7 @@ void refreshDisplay(char *angle_arrayCurrent, char *angle_arrayOld, int maxLengt
     }
 }
 
-//WRITE ANGLE AND VELOCITY INTO AN ARRAY 
+//write the value of angle and angular velocity into a char array 
 void updateDisplayValues(double angle, double angular_velocity){
     static int indexAngle = 0;
     static int indexVelocity = 0;

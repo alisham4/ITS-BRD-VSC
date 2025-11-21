@@ -17,14 +17,9 @@
 void LED_ON(int mask);
 
 /**
- * @brief turns LEDs off
+ * @brief turns LEDs with the given mask off 
  * @param int
  */
 void LED_OFF(int mask);
 
-/**
- * @brief 
- * 
- */
-void step_Counter_Output(int stepCounter);
 #endif

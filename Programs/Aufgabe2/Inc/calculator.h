@@ -8,14 +8,14 @@
 
 /**
 * @brief calculates the angular velocity
-* @param double angle, int timestamp, int stepCounter
+* @param double angle, int time
 * @return double
 */
 double get_angular_velocity(double angle, double time);
 
 /**
-* @brief prints the angule and velocity onto the diplay
-* @param char array, char arrayCopy, int lenght of array, int position of x and y , int pos counter
+* @brief prints the angle and velocity onto the diplay
+* @param char array, char arrayCopy, int lenght of array, int position of x and y , int *index 
  */
 void refreshDisplay(char *array, char *arrayCopy, int maxLength, int row, int startCol, int *index);
 

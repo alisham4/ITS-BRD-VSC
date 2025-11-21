@@ -8,8 +8,8 @@
 #define mask_S6 (0x01u << 6)
 
 /**
- * @brief reads the pin A (GPIO PF0) and returs true if pin == 1 ,false otherwise
- * @return int
+ * @brief reads the pin A (GPIO PF0) and returs true if pin == 1 ,false  otherwise
+ * @return int pin
  */
 int readPinA();
 

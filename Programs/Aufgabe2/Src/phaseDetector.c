@@ -4,10 +4,12 @@
 #include <stddef.h>
 #include <stdio.h>
 
+//initialize variables
 int stepCounter = 0; 
 int phaseOld = -1;
-int phaseAktuell = -1;
+int phaseCurrent = -1;
 
+//phase detector array
 char phaseArray[4][4] = {
     {NO_CHANGE, FORWARD, ERROR_, BACKWARD},
     {BACKWARD, NO_CHANGE, FORWARD, ERROR_},
@@ -15,7 +17,7 @@ char phaseArray[4][4] = {
     {FORWARD, ERROR_, BACKWARD, NO_CHANGE}
 };
 
-//GET SINGLE RESULT
+//get single result
 int get_single_phase(){
 
     int res_PinA = 0;
@@ -38,30 +40,22 @@ int get_single_phase(){
     }
 
 
-    //GET FINAL RESUlT
-    char get_result_transition(int phaseAktuell){
+    //get final result
+    char get_result_transition(int phaseCurrent){
         
         if(phaseOld == -1 ) {
-            phaseOld=phaseAktuell;
-
+            phaseOld=phaseCurrent;
             return NO_CHANGE;
         } else {
-            
-
-            char phaseChange = phaseArray[phaseOld][phaseAktuell];
-           //                                                                                           increase or decrease counter
+            char phaseChange = phaseArray[phaseOld][phaseCurrent];                                                                                      
             counter(phaseChange);
-            phaseOld = phaseAktuell;
-
-
+            phaseOld = phaseCurrent;
             return phaseChange;
-
-        }
-       
+        }  
     }
 
     
-    //COUNTER
+    //update counter
     int counter(char phaseChange){
         
         if(phaseChange == FORWARD){
