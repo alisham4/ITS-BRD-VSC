@@ -16,10 +16,17 @@
  */
 void LED_ON(int mask);
 
+
 /**
  * @brief turns LEDs with the given mask off 
  * @param int
  */
 void LED_OFF(int mask);
+
+/**
+ * @brief turns LED with the given mask off for time measurement 
+ * @param int
+ */
+void LED_ON_OS(int mask);
 
 #endif

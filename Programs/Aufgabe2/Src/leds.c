@@ -17,3 +17,7 @@ void LED_OFF(int mask){
     GPIOE->BSRR = mask << 16;
 }
 
+void LED_ON_OS(int mask) {
+    GPIOE->BSRR = mask;
+}
+

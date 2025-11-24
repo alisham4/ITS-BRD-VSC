@@ -25,6 +25,7 @@
 #include <stdio.h>
 
 #define TIMER_CONT (1000 * TICKS_PER_US)
+//declaration of variables stepCounter and phaseOld
 extern int stepCounter, phaseOld;
 
 int main(void) {
@@ -104,11 +105,15 @@ int main(void) {
             lastTime = startTime;
             lastAngle = angle;
 		}
-
+        
+        LED_ON_OS(0x01<<2);
         updateDisplayValues(angle, omega);
-
+        LED_OFF(0x01<<2); 
+        
 		//output (turn leds on according to stepCounter)
         GPIOD->BSRR = 0xFF << 16;
         GPIOD->BSRR = stepCounter & 0xFF;
 	}
+
+
 }
