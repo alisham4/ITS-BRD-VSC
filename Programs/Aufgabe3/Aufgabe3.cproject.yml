@@ -172,12 +172,22 @@ project:
     - group: Program/User/Inc
       files:
         - file: ../../ITS_BRD_LIB/Inc/lcd.h
+        - file: Inc/input.h
+        - file: Inc/errorhandler.h
+        - file: Inc/headers.h
+        - file: Inc/MS_basetypes.h
+        - file: Inc/BMP_types.h
+        
 
 
     # Benutzerdefinierte Programmdateien
     - group: Program/User/Src
       files:
         - file: Src/main.c
+        - file: Src/input.c
+        - file: Src/errorhandler.c
+        - file: Src/headers.c
+        - file: Src/varlenarr.c
 
 
   components:
