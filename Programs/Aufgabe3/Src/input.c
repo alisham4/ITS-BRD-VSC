@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "C:/ITS-BRD-VSC/Programs/Aufgabe3/Inc/input.h"
+#include "input.h"
 #include "errorhandler.h"
 #include "lcd.h"
-#include "perfTimer.h"
+//#include "perfTimer.h"
 #include "timer.h"
 
 #define USE_DMA 
