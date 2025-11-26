@@ -1,6 +1,4 @@
 #include "phaseDetector.h"
-#include "leds.h"
-#include "input.h"
 #include <stddef.h>
 #include <stdio.h>
 

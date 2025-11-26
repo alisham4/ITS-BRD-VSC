@@ -2,10 +2,6 @@
 #define LEDS_H
 
 
-#define LED_FORWARD D23
-#define LED_BACKWARD D22
-#define LED_ERROR D21
-
 #define BSRR_LED23_MASK (0x01 << (7))
 #define BSRR_LED22_MASK (0x01 << (6))
 #define BSRR_LED21_MASK (0x01 << (5))

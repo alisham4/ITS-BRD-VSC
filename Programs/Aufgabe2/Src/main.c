@@ -16,7 +16,8 @@
 #include "fontsFLASH.h"
 #include "additionalFonts.h"
 #include "error.h"
-#include "input.h"
+
+
 #include "leds.h"
 #include "phaseDetector.h"
 #include "timer.h"
