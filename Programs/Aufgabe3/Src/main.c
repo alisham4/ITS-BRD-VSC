@@ -7,6 +7,9 @@
   */
 /* Includes ------------------------------------------------------------------*/
 
+#include "LCD_general.h"
+#include "headers.h"
+#include "input.h"
 #include "stm32f4xx_hal.h"
 #include "init.h"
 #include "LCD_GUI.h"
@@ -17,18 +20,27 @@
 #include "error.h"
 
 
+
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
 	
 	GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
 	TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
-
-  // Begruessungstext	
-	lcdPrintlnS("Hallo liebes TI-Labor (c-project)");
-	
+	char currentChar = NULL;
 	// Test in Endlosschleife
 	while(1) {
-		HAL_Delay(10000);
+		initInput();
+		openNextFile();
+		readHeaders();
+
+		currentChar = nextChar();
+
+		Coordinate crd1;
+		crd1.x = 0;
+		crd1.y = 0; 
+
+		GUI_drawPoint( crd1, BLACK, 1, 1);
+
 	}
 }
 

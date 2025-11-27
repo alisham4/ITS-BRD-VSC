@@ -4,7 +4,7 @@
 #include "errorhandler.h"
 #include "lcd.h"
 //#include "perfTimer.h"
-#include "timer.h"
+//#include "timer.h"
 
 #define USE_DMA 
 
