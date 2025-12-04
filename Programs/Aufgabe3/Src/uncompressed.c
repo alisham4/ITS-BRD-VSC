@@ -28,8 +28,9 @@ void print_uncmp_picture(RGBQUAD palette[]){
 					uint16_t displayFarbe = farbeUmwandeln(farbe);
                     if(x < 480){
                        displayArray[x] = displayFarbe;
-                }
+                }  
 			}
+            
             if(infoHeader.biWidth < displayWidth){
                width = infoHeader.biWidth;
             }else{
