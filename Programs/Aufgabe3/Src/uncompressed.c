@@ -1,20 +1,13 @@
 #include "uncompressed.h"
 #include "BMP_types.h"
 #include "readBitMap.h"
-#include "LCD_GUI.h"
-#include "headers.h"
 #include "input.h"
 #include <stdint.h>
 #include "printLine.h"
 
 extern BITMAPINFOHEADER infoHeader;
 extern BITMAPFILEHEADER fileHeader;
-uint16_t  displayArray[480];
-
-uint16_t farbeUmwandeln(RGBQUAD farbe)
-{
-	return (farbe.rgbRed >> 3) << 11 | (farbe.rgbGreen >> 2) << 5 | (farbe.rgbBlue >> 3);
-}
+extern uint16_t displayArray[480];
 
 void print_uncmp_picture(RGBQUAD palette[]){
     

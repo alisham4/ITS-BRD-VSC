@@ -3,11 +3,10 @@
 #include "headers.h"
 #include "input.h"
 
-BITMAPINFOHEADER infoHeader;
-BITMAPFILEHEADER fileHeader;
+extern BITMAPINFOHEADER infoHeader;
+extern BITMAPFILEHEADER fileHeader;
 
 void readInput(){
-     initInput();
      openNextFile();
      readHeaders();
      getFileHeader(&fileHeader);
@@ -17,7 +16,7 @@ void readInput(){
 int get_number_Of_Colors(){
     
     if(infoHeader.biClrUsed == 0) {
-			return 265;
+			return 256;
 		} else {
 			return infoHeader.biClrUsed;
         }
@@ -37,4 +36,9 @@ void padding_Line(){
     for (int i = 0; i < paddingLine; i++) {
 					nextChar();
 				}
+}
+
+uint16_t farbeUmwandeln(RGBQUAD farbe)
+{
+	return (farbe.rgbRed >> 3) << 11 | (farbe.rgbGreen >> 2) << 5 | (farbe.rgbBlue >> 3);
 }

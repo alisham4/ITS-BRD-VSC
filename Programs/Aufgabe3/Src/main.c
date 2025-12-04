@@ -26,16 +26,17 @@
 BITMAPFILEHEADER fileHeader;
 BITMAPINFOHEADER infoHeader;
 static RGBQUAD palette[256];
+uint16_t  displayArray[480];
 
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
-	
 	GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
 	TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
-	char currentChar = NULL;
 	int paletteLength;
-	 
+	
+	initInput();
+
 	// Test in Endlosschleife
 	while(1) {
 		
@@ -47,12 +48,15 @@ int main(void) {
 		if(infoHeader.biCompression == 0){
 			// uncompressed
 			print_uncmp_picture(palette);
-			}
-		else {
-			// compressed
-			print_cmp_picture(palette);
-			}
 		}
+		else {
+		// compressed
+			print_cmp_picture(palette);
+		}
+
+		while(!(GPIOF->IDR & 1)); // wait while pressed
+		while(GPIOF->IDR & 1); // wait until released
+	}
 
 
 		/*Coordinate crd1;

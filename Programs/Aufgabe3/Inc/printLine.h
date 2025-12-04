@@ -3,6 +3,8 @@
 #include "stdint.h"
 #include "LCD_GUI.h"
 
+#define displayWidth 480
+
 /**
 * print line by line on display
  */

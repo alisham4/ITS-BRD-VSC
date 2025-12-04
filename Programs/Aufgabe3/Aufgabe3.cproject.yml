@@ -185,9 +185,10 @@ project:
         - file: Inc/headers.h
         - file: Inc/MS_basetypes.h
         - file: Inc/BMP_types.h
-        - file: readBitMap.h
         - file: uncompressed.h
-        - file: compressed.h
+        - file: Inc/readBitMap.h
+        - file: Inc/compressed.h
+        - file: Inc/printLine.h
 
     # Benutzerdefinierte Programmdateien
     - group: Program/User/Src
@@ -196,9 +197,10 @@ project:
         - file: Src/input.c
         - file: Src/errorhandler.c
         - file: Src/headers.c
-        - file: readBitMap.c
-        - file: uncompressed.c
-        - file: compressed.c
+        - file: Src/compressed.c
+        - file: Src/uncompressed.c
+        - file: Src/readBitMap.c
+        - file: Src/printLine.c
 
   components:
     - component: ARM::CMSIS:CORE

@@ -2,6 +2,7 @@ build-idx:
   generated-by: csolution version 2.12.0
   cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
   csolution: Aufgabe3.csolution.yml
+  cbuild-run: out/Aufgabe3+ITSboard.cbuild-run.yml
   tmpdir: tmp
   cprojects:
     - cproject: Aufgabe3.cproject.yml
@@ -10,14 +11,9 @@ build-idx:
       project: Aufgabe3
       configuration: .Debug+ITSboard
       messages:
-        errors:
-          - Aufgabe3.cproject.yml:201:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe3/compressed.c' was not found
-          - Aufgabe3.cproject.yml:190:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe3/compressed.h' was not found
-          - Aufgabe3.cproject.yml:199:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe3/readBitMap.c' was not found
-          - Aufgabe3.cproject.yml:188:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe3/readBitMap.h' was not found
-          - Aufgabe3.cproject.yml:200:11 - file '/Users/alishamuzaffar/GitProjekte/ITS-BRD-VSC/Programs/Aufgabe3/uncompressed.c' was not found
         info:
           - Aufgabe3.cbuild-pack.yml - file is already up-to-date
+          - Aufgabe3+ITSboard.cbuild-run.yml - file is already up-to-date
           - Aufgabe3.Debug+ITSboard.cbuild.yml - file is already up-to-date
       packs-unused:
         - pack: ARM::CMSIS-DSP@1.16.2
