@@ -44,7 +44,7 @@ void print_cmp_picture(RGBQUAD palette[]){
 					}
 					else {
 						// absolute mode
-						Coordinate crd = {0,b};
+						//Coordinate crd = {0,b};
 						for (int i = 0; i < b; i++) {
 							uint8_t farbIndex = nextChar();
 							RGBQUAD farbe = palette[farbIndex];
@@ -63,7 +63,7 @@ void print_cmp_picture(RGBQUAD palette[]){
                     }
                 } else {
 					      // encoded mode
-						 Coordinate crd = { x, a };
+						 //Coordinate crd = { x, a };
 					        RGBQUAD farbe = palette[b];
 					        uint16_t displayFarbe = farbeUmwandeln(farbe); 
                             for (int i = 0; i < a; i++) {
