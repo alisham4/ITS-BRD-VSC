@@ -201,6 +201,7 @@ project:
         - file: Src/uncompressed.c
         - file: Src/readBitMap.c
         - file: Src/printLine.c
+        - file: Src/minimizePicture.c
 
   components:
     - component: ARM::CMSIS:CORE

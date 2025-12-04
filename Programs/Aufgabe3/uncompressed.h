@@ -6,6 +6,6 @@
 /**
 * deals with uncompressed mode
  */
-void print_uncmp_picture(RGBQUAD palette[]);
+void print_uncmp_picture();
 
 #endif

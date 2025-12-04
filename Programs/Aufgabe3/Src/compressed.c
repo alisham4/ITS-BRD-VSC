@@ -8,7 +8,7 @@ extern BITMAPINFOHEADER infoHeader;
 extern BITMAPFILEHEADER fileHeader;
 extern uint16_t displayArray[480];
 
-void print_cmp_picture(RGBQUAD palette[]){
+void print_cmp_picture(){
 
 	int x = 0;
 	int y = infoHeader.biHeight-1;
@@ -27,7 +27,7 @@ void print_cmp_picture(RGBQUAD palette[]){
 			else if(b == 1) {
 				// end of file (a==0 && b==1)
 				Coordinate crd = {0,y};
-				printLine(displayArray,crd);
+				printLine(displayArray, crd);
 				break;
 			}
 			else if(b == 2) {
@@ -39,11 +39,7 @@ void print_cmp_picture(RGBQUAD palette[]){
 				// absolute mode (a==0 && b==n)
 				for (int i = 0; i < b; i++) {
 					uint8_t farbIndex = nextChar();
-					RGBQUAD farbe = palette[farbIndex];
-					uint16_t displayFarbe = farbeUmwandeln(farbe);
-					if(x < displayWidth){
-						displayArray[x] = displayFarbe;
-					} 
+					putPixel(x, farbIndex);
 					x++;
 				}
 
@@ -55,12 +51,8 @@ void print_cmp_picture(RGBQUAD palette[]){
 			}
 		} else {
 			// encoded mode (a==n && b==m)
-			RGBQUAD farbe = palette[b];
-			uint16_t displayFarbe = farbeUmwandeln(farbe); 
 			for (int i = 0; i < a; i++) {
-				if(x < displayWidth){
-					displayArray[x] = displayFarbe;
-				}
+				putPixel(x, b);
 				x++;      
 			}
 		}

@@ -5,6 +5,6 @@
 /*
 * prints compressed pictures
 */
-void print_cmp_picture(RGBQUAD palette[]);
+void print_cmp_picture();
 
 #endif

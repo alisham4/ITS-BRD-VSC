@@ -12,6 +12,7 @@
 #include "compressed.h"
 #include "headers.h"
 #include "input.h"
+#include "printLine.h"
 #include "stm32f4xx_hal.h"
 #include "init.h"
 #include "LCD_GUI.h"
@@ -22,12 +23,11 @@
 #include "error.h"
 #include "readBitMap.h"
 #include "uncompressed.h"
+#include "minimizePicture.h"
 
 BITMAPFILEHEADER fileHeader;
 BITMAPINFOHEADER infoHeader;
-static RGBQUAD palette[256];
-uint16_t  displayArray[480];
-
+RGBQUAD palette[256];
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
@@ -44,14 +44,16 @@ int main(void) {
 		paletteLength = get_number_Of_Colors();
 		COMread((char *)palette, sizeof(RGBQUAD), paletteLength);
 		padding_Bytes(paletteLength);
-
-		if(infoHeader.biCompression == 0){
+		
+		min_Picture();
+		
+		if (infoHeader.biCompression == 0){
 			// uncompressed
-			print_uncmp_picture(palette);
+			print_uncmp_picture();
 		}
 		else {
 		// compressed
-			print_cmp_picture(palette);
+			print_cmp_picture();
 		}
 
 		while(!(GPIOF->IDR & 1)); // wait while pressed
