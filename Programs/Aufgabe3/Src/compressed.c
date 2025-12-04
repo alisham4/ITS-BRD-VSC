@@ -4,9 +4,11 @@
 #include "LCD_GUI.h"
 #include "headers.h"
 #include "input.h"
+#include "printLine.h"
 
 extern BITMAPINFOHEADER infoHeader;
 extern BITMAPFILEHEADER fileHeader;
+uint16_t  displayArray[480];
 
 uint16_t farbeUmwandeln(RGBQUAD farbe)
 {
@@ -38,12 +40,15 @@ void print_cmp_picture(RGBQUAD palette[]){
 					}
 					else {
 						// absolute mode
+						Coordinate crd = { x, y };
 						for (int i = 0; i < b; i++) {
 							uint8_t farbIndex = nextChar();
 							RGBQUAD farbe = palette[farbIndex];
 							uint16_t displayFarbe = farbeUmwandeln(farbe);
-							Coordinate crd = { x, y };
-							GUI_drawPoint(crd, displayFarbe, DOT_PIXEL_1X1, DOT_FILL_AROUND);
+							   if(x < 480){
+                               displayArray[x] = displayFarbe;
+                             } 
+							printLine(displayArray,crd);
 							x++;
 						}
 
@@ -55,11 +60,14 @@ void print_cmp_picture(RGBQUAD palette[]){
                     }
                 } else {
 					      // encoded mode
+						Coordinate crd = { x, y };
 					        RGBQUAD farbe = palette[b];
 					        uint16_t displayFarbe = farbeUmwandeln(farbe);
+							if(x < 480){
+                             displayArray[x] = displayFarbe;
+                            } 
                             for (int i = 0; i < a; i++) {
-						    Coordinate crd = { x, y };
-						    GUI_drawPoint(crd, displayFarbe, DOT_PIXEL_1X1, DOT_FILL_AROUND);
+						    printLine(displayArray,crd);
 						    x++;      
                    }
 				}

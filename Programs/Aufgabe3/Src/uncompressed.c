@@ -5,6 +5,7 @@
 #include "headers.h"
 #include "input.h"
 #include <stdint.h>
+#include "printLine.h"
 
 extern BITMAPINFOHEADER infoHeader;
 extern BITMAPFILEHEADER fileHeader;
@@ -30,13 +31,7 @@ void print_uncmp_picture(RGBQUAD palette[]){
                        displayArray[x] = displayFarbe;
                 }  
 			}
-            
-            if(infoHeader.biWidth < displayWidth){
-               width = infoHeader.biWidth;
-            }else{
-               width = displayWidth;
-            }
-            GUI_WriteLine(crd, width, displayArray);
+                printLine(displayArray,crd);
                 padding_Line();
             }
         }
