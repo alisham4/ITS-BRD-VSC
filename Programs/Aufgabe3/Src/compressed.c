@@ -49,8 +49,8 @@ void print_cmp_picture(RGBQUAD palette[]){
 							uint8_t farbIndex = nextChar();
 							RGBQUAD farbe = palette[farbIndex];
 							uint16_t displayFarbe = farbeUmwandeln(farbe);
-							   if(i < displayWidth){
-                               displayArray[i] = displayFarbe;
+							   if(x < displayWidth){
+                               displayArray[x] = displayFarbe;
                              } 
 							x++;
 						}
@@ -66,8 +66,8 @@ void print_cmp_picture(RGBQUAD palette[]){
 					        RGBQUAD farbe = palette[b];
 					        uint16_t displayFarbe = farbeUmwandeln(farbe); 
                             for (int i = 0; i < a; i++) {
-							if(i < displayWidth){
-                             displayArray[i] = displayFarbe;
+							if(x < displayWidth){
+                             displayArray[x] = displayFarbe;
                             }
 						    x++;      
                    }
