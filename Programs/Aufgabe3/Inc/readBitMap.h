@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "BMP_types.h"
+#define MAX_PALETTE_LENGTH 256
 
 /*
 * read input

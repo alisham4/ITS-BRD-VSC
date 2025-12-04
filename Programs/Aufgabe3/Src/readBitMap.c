@@ -16,7 +16,7 @@ void readInput(){
 int get_number_Of_Colors(){
     
     if(infoHeader.biClrUsed == 0) {
-			return 256;
+			return MAX_PALETTE_LENGTH;
 		} else {
 			return infoHeader.biClrUsed;
         }
