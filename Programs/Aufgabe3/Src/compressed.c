@@ -25,12 +25,16 @@ void print_cmp_picture(RGBQUAD palette[]){
 
 				if(a == 0) {
 					if(b == 0) {
-						// end of line
+						// end of line (a==0 && b==0)
+						Coordinate crd = {0,y};
+						printLine(displayArray,crd);
 						x = 0;
 						y--;
 					}
 					else if(b == 1) {
-						// end of file
+						// end of file (a==0 && b==1)
+						Coordinate crd = {0,y};
+						printLine(displayArray,crd);
 						break;
 					}
 					else if(b == 2) {
@@ -40,7 +44,7 @@ void print_cmp_picture(RGBQUAD palette[]){
 					}
 					else {
 						// absolute mode
-						Coordinate crd = { x, y };
+						Coordinate crd = {0,b};
 						for (int i = 0; i < b; i++) {
 							uint8_t farbIndex = nextChar();
 							RGBQUAD farbe = palette[farbIndex];
@@ -48,9 +52,9 @@ void print_cmp_picture(RGBQUAD palette[]){
 							   if(x < 480){
                                displayArray[x] = displayFarbe;
                              } 
-							printLine(displayArray,crd);
 							x++;
 						}
+						printLine(displayArray, crd);
 
 						if(b % 2 != 0)
 						{
@@ -60,13 +64,13 @@ void print_cmp_picture(RGBQUAD palette[]){
                     }
                 } else {
 					      // encoded mode
-						Coordinate crd = { x, y };
+						 Coordinate crd = { x, a };
 					        RGBQUAD farbe = palette[b];
-					        uint16_t displayFarbe = farbeUmwandeln(farbe);
+					        uint16_t displayFarbe = farbeUmwandeln(farbe); 
+                            for (int i = 0; i < a; i++) {
 							if(x < 480){
                              displayArray[x] = displayFarbe;
-                            } 
-                            for (int i = 0; i < a; i++) {
+                            }
 						    printLine(displayArray,crd);
 						    x++;      
                    }
