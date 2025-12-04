@@ -24,6 +24,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "input.h"
 
 #define TIMER_CONT (1000 * TICKS_PER_US)
 //declaration of variables stepCounter and phaseOld
@@ -56,6 +57,7 @@ int main(void) {
   lcdPrintS("Angle: ");
 	
 	// Test in Endlosschleife
+    
 	while(1) {
 
 		//read input 
@@ -115,6 +117,6 @@ int main(void) {
         GPIOD->BSRR = 0xFF << 16;
         GPIOD->BSRR = stepCounter & 0xFF;
 	}
-
+       // LED_OFF(0x01<<2); 
 
 }

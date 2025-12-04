@@ -1,6 +1,7 @@
 #include "phaseDetector.h"
 #include <stddef.h>
 #include <stdio.h>
+#include "input.h"
 
 //initialize variables
 int stepCounter = 0; 
