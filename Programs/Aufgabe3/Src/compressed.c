@@ -5,6 +5,7 @@
 #include "headers.h"
 #include "input.h"
 #include "printLine.h"
+#include "uncompressed.h"
 
 extern BITMAPINFOHEADER infoHeader;
 extern BITMAPFILEHEADER fileHeader;
@@ -38,19 +39,18 @@ void print_cmp_picture(RGBQUAD palette[]){
 						break;
 					}
 					else if(b == 2) {
-						// delta
+						// delta (a==0 && b==2)
 						x += nextChar();
 						y -= nextChar();
 					}
 					else {
-						// absolute mode
-						//Coordinate crd = {0,b};
+						// absolute mode (a==0 && b==n)
 						for (int i = 0; i < b; i++) {
 							uint8_t farbIndex = nextChar();
 							RGBQUAD farbe = palette[farbIndex];
 							uint16_t displayFarbe = farbeUmwandeln(farbe);
-							   if(x < 480){
-                               displayArray[x] = displayFarbe;
+							   if(i < displayWidth){
+                               displayArray[i] = displayFarbe;
                              } 
 							x++;
 						}
@@ -62,13 +62,12 @@ void print_cmp_picture(RGBQUAD palette[]){
                         }
                     }
                 } else {
-					      // encoded mode
-						 //Coordinate crd = { x, a };
+					      // encoded mode (a==n && b==m)
 					        RGBQUAD farbe = palette[b];
 					        uint16_t displayFarbe = farbeUmwandeln(farbe); 
                             for (int i = 0; i < a; i++) {
-							if(x < 480){
-                             displayArray[x] = displayFarbe;
+							if(i < displayWidth){
+                             displayArray[i] = displayFarbe;
                             }
 						    x++;      
                    }
