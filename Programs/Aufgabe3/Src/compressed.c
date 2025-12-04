@@ -54,7 +54,6 @@ void print_cmp_picture(RGBQUAD palette[]){
                              } 
 							x++;
 						}
-						printLine(displayArray, crd);
 
 						if(b % 2 != 0)
 						{
@@ -71,7 +70,6 @@ void print_cmp_picture(RGBQUAD palette[]){
 							if(x < 480){
                              displayArray[x] = displayFarbe;
                             }
-						    printLine(displayArray,crd);
 						    x++;      
                    }
 				}
