@@ -6,7 +6,7 @@
 /*
 * minimizes the picture by 1/5
 */
-void min_Picture();
+void initMinimize();
 
 void minimizeLine();
 
