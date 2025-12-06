@@ -45,7 +45,7 @@ int main(void) {
 		COMread((char *)palette, sizeof(RGBQUAD), paletteLength);
 		padding_Bytes(paletteLength);
 		
-		min_Picture();
+		initMinimize();
 		
 		if (infoHeader.biCompression == 0){
 			// uncompressed
