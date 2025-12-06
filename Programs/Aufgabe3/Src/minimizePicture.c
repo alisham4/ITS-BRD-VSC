@@ -4,95 +4,100 @@
 #include "printLine.h"
 #include "math.h"
 #include "readBitMap.h"
+#include <stdbool.h>
 
 extern RGBQUAD palette[256];
 extern uint8_t linesArray[5][5*480];
 extern BITMAPFILEHEADER fileHeader;
 extern BITMAPINFOHEADER infoHeader;
-
 extern uint16_t displayArray[480];
 
-bool tooBig = false;
-int startY = 0;
-int loopY = 0;
-int box_size = 1;
-float scale = 1.0;
-int scaled_height;
-int scaled_width;
+#define MAX_BUFF_SIZE 5
 
-void min_Picture(){
-    if(infoHeader.biHeight > displayHeight || infoHeader.biWidth > displayWidth){
-        float scale_x = (float)displayWidth / infoHeader.biWidth;
-        float scale_y = (float)displayHeight / infoHeader.biHeight;
+typedef struct{
 
-        scale = fmin(scale_x, scale_y);
-        box_size = ceil(1 / scale);
-        scaled_height = infoHeader.biHeight / box_size;
-        scaled_width = infoHeader.biWidth / box_size;
-        tooBig = true;
-    }
-    else {
-        tooBig = false;
-        box_size = 1;
-        scale = 1.0;
-    }
+    int box_size;
+    float scale;
+    int scaled_width;
+    int scaled_height;
+    int startY;
+    int loopY;
+    bool tooBig;
+}MinimizeState;
 
-    startY = 0;
-    loopY = 0;
-}
+MinimizeState minState;
 
-int min(int a, int b)
-{
+//Hilfsmethoden
+int min(int a, int b){
     return a < b ? a : b;
 }
 
 int indexLine(int i) {
-    return (i + loopY) % 5;
+    return (i + minState.loopY) % MAX_BUFF_SIZE;
 }
 
 RGBQUAD getPixel(int x, int y) {
-    return palette[linesArray[indexLine(y-startY )][x]];
+    return palette[linesArray[indexLine(y )][x]];
 }
 
-uint16_t averageColor(int x, int y, int x_end, int y_end) {
-    int r = 0;
-    int g = 0;
-    int b = 0;
-    for(int x0 = x; x0 < x_end; x0++) {
-        for(int y0 = y; y0 < y_end; y0++) {
-            RGBQUAD color = getPixel(x0, y0);
+
+// Durchschnittsfarbe einer Box berechnen
+uint16_t averageColor(int x_start, int y_start, int x_end, int y_end) {
+    int r = 0, g = 0, b = 0;
+
+    for(int y = y_start; y < y_end; y++) {
+        for(int x = x_start; x < x_end; x++) {
+            RGBQUAD color = getPixel(x, y - minState.startY);
             r += color.rgbRed;
             g += color.rgbGreen;
             b += color.rgbBlue;
         }
     }
 
-    int count = (x_end - x) * (y_end - y);
+    int count = (x_end - x_start) * (y_end - y_start);
     if(count == 0) count = 1;
 
-    r /= count;
-    g /= count;
-    b /= count;
+    RGBQUAD avg = { r/count, g/count, b/count, 0 };
+    return farbeUmwandeln(avg);
+}
 
-    RGBQUAD farbe = { r, g, b, 0 };
-    return farbeUmwandeln(farbe);
+void initMinimize() {
+    if(infoHeader.biHeight > displayHeight || infoHeader.biWidth > displayWidth) {
+        float scaleX = (float)displayWidth/ infoHeader.biWidth;
+        float scaleY = (float)displayHeight / infoHeader.biHeight;
+
+        minState.scale = fmin(scaleX, scaleY);
+        minState.box_size = ceil(1 / minState.scale);
+        minState.scaled_width = infoHeader.biWidth * minState.scale;
+        minState.scaled_height = infoHeader.biHeight * minState.scale;
+        minState.tooBig = true;
+    } else {
+        minState.scale = 1.0;
+        minState.box_size = 1;
+        minState.scaled_width = infoHeader.biWidth;
+        minState.scaled_height = infoHeader.biHeight;
+        minState.tooBig = false;
+    }
+
+    minState.startY = 0;
+    minState.loopY = 0;
 }
 
 void minimizeLine() {
-    int y = startY;
-    int y_ = floor(y / scale);
-    int y_end = min(y_ + box_size, scaled_height );
-    for(int x = 0; x < scaled_width; x++) {
-        int x_ = floor(x / scale);
-        int x_end = min(x_ + box_size, scaled_width );
-        
-        uint16_t color = averageColor(x_, y_, x_end, y_end);
-        displayArray[x] = color;
+    int y = minState.startY;
+    int y_orig = floor(y / minState.scale);
+    int y_end  = min(y_orig + minState.box_size, infoHeader.biHeight);
+
+    for(int x = 0; x < minState.scaled_width; x++) {
+        int x_orig = floor(x / minState.scale);
+        int x_end  = min(x_orig + minState.box_size, infoHeader.biWidth);
+
+        displayArray[x] = averageColor(x_orig, y_orig, x_end, y_end);
     }
 
-    Coordinate crd = { 0, y };
-    GUI_WriteLine(crd, scaled_width, displayArray);
+    Coordinate crd = {0, y};
+    GUI_WriteLine(crd, minState.scaled_width, displayArray);
 
-    startY++;
-    loopY = (loopY + 1) % 5;
+    minState.startY++;
+    minState.loopY = (minState.loopY + 1) % MAX_BUFF_SIZE;
 }
