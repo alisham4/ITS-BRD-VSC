@@ -47,20 +47,20 @@ int min(int a, int b)
 }
 
 int indexLine(int i) {
-    return (i + loopY + 1) % 5;
+    return (i + loopY) % 5;
 }
 
 RGBQUAD getPixel(int x, int y) {
-    return palette[linesArray[indexLine(y - startY)][x]];
+    return palette[linesArray[indexLine(y-startY )][x]];
 }
 
 uint16_t averageColor(int x, int y, int x_end, int y_end) {
     int r = 0;
     int g = 0;
     int b = 0;
-    for(int x0 = x; x0 < x_end; x++) {
-        for(int y0 = y; y0 < y_end; y++) {
-            RGBQUAD color = getPixel(x, y);
+    for(int x0 = x; x0 < x_end; x0++) {
+        for(int y0 = y; y0 < y_end; y0++) {
+            RGBQUAD color = getPixel(x0, y0);
             r += color.rgbRed;
             g += color.rgbGreen;
             b += color.rgbBlue;
@@ -68,6 +68,7 @@ uint16_t averageColor(int x, int y, int x_end, int y_end) {
     }
 
     int count = (x_end - x) * (y_end - y);
+    if(count == 0) count = 1;
 
     r /= count;
     g /= count;
@@ -80,10 +81,10 @@ uint16_t averageColor(int x, int y, int x_end, int y_end) {
 void minimizeLine() {
     int y = startY;
     int y_ = floor(y / scale);
-    int y_end = min(y_ + box_size, scaled_height - 1);
+    int y_end = min(y_ + box_size, scaled_height );
     for(int x = 0; x < scaled_width; x++) {
         int x_ = floor(x / scale);
-        int x_end = min(x_ + box_size, scaled_width - 1);
+        int x_end = min(x_ + box_size, scaled_width );
         
         uint16_t color = averageColor(x_, y_, x_end, y_end);
         displayArray[x] = color;

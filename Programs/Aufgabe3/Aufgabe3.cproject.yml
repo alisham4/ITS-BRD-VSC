@@ -189,6 +189,7 @@ project:
         - file: Inc/readBitMap.h
         - file: Inc/compressed.h
         - file: Inc/printLine.h
+        - file: Inc/minimizePicture.h
 
     # Benutzerdefinierte Programmdateien
     - group: Program/User/Src
