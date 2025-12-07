@@ -6,12 +6,13 @@
 #include "readBitMap.h"
 
 extern RGBQUAD palette[256];
-extern uint8_t linesArray[5][5*480];
 extern BITMAPFILEHEADER fileHeader;
 extern BITMAPINFOHEADER infoHeader;
 extern uint16_t displayArray[480];
 
 #define MAX_BUFF_SIZE 5
+
+extern uint8_t linesArray[MAX_BUFF_SIZE][5*480];
 
 
 MinimizeState minState;
