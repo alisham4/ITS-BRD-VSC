@@ -69,7 +69,7 @@ void initMinimize() {
         minState.tooBig = false;
     }
 
-    minState.startY = 0;
+    minState.startY = displayHeight;
     minState.loopY = 0;
 }
 
@@ -88,6 +88,6 @@ void minimizeLine() {
     Coordinate crd = {0, y};
     GUI_WriteLine(crd, minState.scaled_width, displayArray);
 
-    minState.startY++;
+    minState.startY--;
     minState.loopY = (minState.loopY + 1) % MAX_BUFF_SIZE;
 }
