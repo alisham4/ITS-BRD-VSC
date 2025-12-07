@@ -2,10 +2,23 @@
 #define _MINIMIZEPICTURE_H
 #include <stdint.h>
 #include "BMP_types.h"
+#include <stdbool.h>
 
 /*
 * minimizes the picture by 1/5
 */
+
+typedef struct{
+
+    int box_size;
+    float scale;
+    int scaled_width;
+    int scaled_height;
+    int startY;
+    int loopY;
+    bool tooBig;
+}MinimizeState;
+
 void initMinimize();
 
 void minimizeLine();

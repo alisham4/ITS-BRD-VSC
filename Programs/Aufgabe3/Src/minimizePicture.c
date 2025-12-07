@@ -4,7 +4,6 @@
 #include "printLine.h"
 #include "math.h"
 #include "readBitMap.h"
-#include <stdbool.h>
 
 extern RGBQUAD palette[256];
 extern uint8_t linesArray[5][5*480];
@@ -14,16 +13,6 @@ extern uint16_t displayArray[480];
 
 #define MAX_BUFF_SIZE 5
 
-typedef struct{
-
-    int box_size;
-    float scale;
-    int scaled_width;
-    int scaled_height;
-    int startY;
-    int loopY;
-    bool tooBig;
-}MinimizeState;
 
 MinimizeState minState;
 
@@ -47,7 +36,7 @@ uint16_t averageColor(int x_start, int y_start, int x_end, int y_end) {
 
     for(int y = y_start; y < y_end; y++) {
         for(int x = x_start; x < x_end; x++) {
-            RGBQUAD color = getPixel(x, y - minState.startY);
+            RGBQUAD color = getPixel(x, y- minState.startY);
             r += color.rgbRed;
             g += color.rgbGreen;
             b += color.rgbBlue;
