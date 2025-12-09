@@ -10,7 +10,7 @@ extern BITMAPINFOHEADER infoHeader;
 extern BITMAPFILEHEADER fileHeader;
 extern RGBQUAD palette[256];
 
-uint8_t linesArray[5][5*480];
+uint8_t linesArray[13][13*480];
 uint16_t displayArray[480];
 
 extern MinimizeState minState;
@@ -42,6 +42,11 @@ void printLine(uint16_t displayArray[],Coordinate crd){
 			minimizeLine();
 			flag = minState.box_size;
          minState.loopY=0;
+         for(int y = 0; y<minState.box_size; y++){
+            for(int x = 0; x<infoHeader.biWidth; x++){
+               linesArray[y][x]=0;
+            }
+         } 
 		}else {
          flag--;
          minState.loopY = minState.loopY + 1;

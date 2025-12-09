@@ -7,7 +7,7 @@
 #include <stdbool.h>
 
 extern RGBQUAD palette[256];
-extern uint8_t linesArray[5][5*480];
+extern uint8_t linesArray[13][13*480];
 extern BITMAPFILEHEADER fileHeader;
 extern BITMAPINFOHEADER infoHeader;
 extern uint16_t displayArray[480];
@@ -54,7 +54,7 @@ uint16_t averageColor(int x_start, int y_start, int x_end, int y_end) {
     int count = minState.box_size * minState.box_size;
     if(count == 0) count = 1;
 
-    RGBQUAD avg = { r/count, g/count, b/count, 0 };
+    RGBQUAD avg = { b/count, g/count, r/count, 0 };
     return farbeUmwandeln(avg);
 }
 
@@ -93,9 +93,13 @@ void minimizeLine() {
         displayArray[x] = averageColor(x_orig, y_orig, x_end, y_end);
     }
 
+    
     Coordinate crd = {0, yCor };
     GUI_WriteLine(crd, minState.scaled_width, displayArray);
+    
     yCor--;
+    
+    
     //minState.startY++;
     //minState.loopY = (minState.loopY + 1) % MAX_BUFF_SIZE;
 		

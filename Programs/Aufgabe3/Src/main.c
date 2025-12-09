@@ -28,6 +28,7 @@
 BITMAPFILEHEADER fileHeader;
 BITMAPINFOHEADER infoHeader;
 RGBQUAD palette[256];
+extern int yCor; 
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
@@ -58,6 +59,7 @@ int main(void) {
 
 		while(!(GPIOF->IDR & 1)); // wait while pressed
 		while(GPIOF->IDR & 1); // wait until released
+		if(1 != (GPIOF->IDR & 1)) yCor=320;
 	}
 
 
