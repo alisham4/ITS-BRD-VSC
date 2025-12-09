@@ -15,10 +15,7 @@ uint16_t displayArray[480];
 
 extern MinimizeState minState;
 extern uint8_t flag;
-//extern int box_size;
 
-//extern bool tooBig;
-//extern int loopY;
 
 void putPixel(int x, uint8_t farbIndex)
 {
@@ -41,13 +38,11 @@ void printLine(uint16_t displayArray[],Coordinate crd){
       GUI_WriteLine(crd, width, displayArray);
    }
    else {
-      
-      if (flag == 1){
-         minimizeLine();
-         flag = minState.box_size;
-      }
-      flag--;
-
-       // @TODO jedes box_te mal hierein
+     if (flag == 1){ 
+				
+				minimizeLine();
+			 flag = minState.box_size;
+		 }
+		 flag--;
    }
 }

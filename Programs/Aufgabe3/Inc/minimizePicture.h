@@ -2,11 +2,7 @@
 #define _MINIMIZEPICTURE_H
 #include <stdint.h>
 #include "BMP_types.h"
-#include <stdbool.h>
-
-/*
-* minimizes the picture by 1/5
-*/
+#include "stdbool.h"
 
 typedef struct{
 

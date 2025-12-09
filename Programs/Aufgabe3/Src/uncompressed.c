@@ -13,7 +13,7 @@ void print_uncmp_picture(){
     
     int x;
     int y;
-    int width;
+    
     for(y=infoHeader.biHeight-1; y>=0; y--) {
         Coordinate crd = { 0, y };
         for (x = 0; x < infoHeader.biWidth; x++) {
