@@ -78,7 +78,7 @@ void initMinimize() {
 
     minState.startY = infoHeader.biHeight;
     minState.loopY = 0;
-		flag = minState.box_size;
+	flag = minState.box_size;
 }
 
 void minimizeLine() { 
@@ -97,7 +97,7 @@ void minimizeLine() {
     GUI_WriteLine(crd, minState.scaled_width, displayArray);
     yCor--;
     //minState.startY++;
-    minState.loopY = (minState.loopY + 1) % MAX_BUFF_SIZE;
+    //minState.loopY = (minState.loopY + 1) % MAX_BUFF_SIZE;
 		
 }
 

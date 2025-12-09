@@ -41,7 +41,11 @@ void printLine(uint16_t displayArray[],Coordinate crd){
      if (flag == 1){ 
 			minimizeLine();
 			flag = minState.box_size;
-		}
-		flag--;
+         minState.loopY=0;
+		}else {
+         flag--;
+         minState.loopY = minState.loopY + 1;
+      }
+		
    }
 }
