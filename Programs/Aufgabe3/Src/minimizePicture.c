@@ -29,7 +29,7 @@ int indexLine(int i) {
 }
 
 RGBQUAD getPixel(int x, int y) {
-	int index = linesArray[indexLine(y)][x];
+	int index = linesArray[y][x];
     return palette[index];
 }
 
@@ -43,7 +43,7 @@ uint16_t averageColor(int x_start, int y_start, int x_end, int y_end) {
             //RGBQUAD color = getPixel(x, y - minState.startY);// <-
 			//int index = linesArray[y - y_end][x];
 			//RGBQUAD color = palette[index];
-            int lineIndex = y - minState.startY;
+            int lineIndex = y - minState.startY-1;
             RGBQUAD color = getPixel(x, lineIndex);
             r += color.rgbRed;
             g += color.rgbGreen;
