@@ -4,6 +4,7 @@
 #include "printLine.h"
 #include "math.h"
 #include "readBitMap.h"
+#include <stdint.h>
 
 extern RGBQUAD palette[256];
 extern BITMAPFILEHEADER fileHeader;
@@ -16,6 +17,7 @@ extern uint8_t linesArray[MAX_BUFF_SIZE][5*480];
 
 
 MinimizeState minState;
+uint8_t flag;
 
 //Hilfsmethoden
 int min(int a, int b){
@@ -71,6 +73,7 @@ void initMinimize() {
 
     minState.startY = displayHeight;
     minState.loopY = 0;
+    flag = minState.box_size;
 }
 
 void minimizeLine() {
