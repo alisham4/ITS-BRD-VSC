@@ -17,6 +17,7 @@ extern uint16_t displayArray[480];
 uint8_t flag;
 
 MinimizeState minState;
+int yCor=320;
 
 //Hilfsmethoden
 int min(int a, int b){
@@ -37,12 +38,12 @@ RGBQUAD getPixel(int x, int y) {
 uint16_t averageColor(int x_start, int y_start, int x_end, int y_end) {
     int r = 0, g = 0, b = 0;
 
-    for(int y = y_start; y > y_end; y--) {
-        for(int x = x_start; x < x_end; x++) {
+    for(int y = y_start; y >= y_end; y--) {
+        for(int x = x_start; x <= x_end; x++) {
             //RGBQUAD color = getPixel(x, y - minState.startY);// <-
-					 //int index = linesArray[y - y_end][x];
-					 //RGBQUAD color = palette[index];
-            int lineIndex = y - minState.startY + minState.box_size - 1;
+			//int index = linesArray[y - y_end][x];
+			//RGBQUAD color = palette[index];
+            int lineIndex = y - minState.startY;
             RGBQUAD color = getPixel(x, lineIndex);
             r += color.rgbRed;
             g += color.rgbGreen;
@@ -81,20 +82,20 @@ void initMinimize() {
 }
 
 void minimizeLine() { 
-		int y_orig = minState.startY;
-		int y_end = y_orig - minState.box_size + 1;
-		minState.startY = y_end - 1;
+    int y_orig = minState.startY;
+    int y_end = y_orig - minState.box_size + 1;
+    minState.startY = y_end - 1;
 	
     for(int x = 0; x < minState.scaled_width; x++) {
         int x_orig = (minState.box_size * x);
-				int x_end = x_orig + minState.box_size - 1;
+		int x_end = x_orig + minState.box_size - 1;
 
         displayArray[x] = averageColor(x_orig, y_orig, x_end, y_end);
     }
 
-    Coordinate crd = {0, y_orig/minState.box_size};
+    Coordinate crd = {0, yCor };
     GUI_WriteLine(crd, minState.scaled_width, displayArray);
-
+    yCor--;
     //minState.startY++;
     minState.loopY = (minState.loopY + 1) % MAX_BUFF_SIZE;
 		
