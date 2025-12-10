@@ -42,12 +42,12 @@ int main(void) {
 	// Test in Endlosschleife
 	while(1) {
 		
-		readInput();
-		paletteLength = get_number_Of_Colors();
+		readInput(); //Bild einlesen
+		paletteLength = get_number_Of_Colors(); //Länge der Palette bestimmen
 		COMread((char *)palette, sizeof(RGBQUAD), paletteLength);
-		padding_Bytes(paletteLength);
+		padding_Bytes(paletteLength); //Anzahl der padding Bytes bestimmen, die zwischen den Header und dem "eigentlichen" Bild liegen
 		
-		initMinimize();
+		initMinimize(); 
 		
 		if(minState.box_size <= 5) {
 			if (infoHeader.biCompression == 0){
