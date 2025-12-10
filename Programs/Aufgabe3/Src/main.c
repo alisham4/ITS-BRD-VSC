@@ -29,6 +29,7 @@ BITMAPFILEHEADER fileHeader;
 BITMAPINFOHEADER infoHeader;
 RGBQUAD palette[256];
 extern int yCor; 
+extern MinimizeState minState;
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
@@ -48,27 +49,29 @@ int main(void) {
 		
 		initMinimize();
 		
-		if (infoHeader.biCompression == 0){
-			// uncompressed
-			print_uncmp_picture();
-		}
-		else {
-		// compressed
-			print_cmp_picture();
+		if(minState.box_size <= 5) {
+			if (infoHeader.biCompression == 0){
+				// uncompressed
+				print_uncmp_picture();
+			}
+			else {
+				// compressed
+				print_cmp_picture();
+			}
+		
+		} else {
+			GUI_clear(WHITE);
+			lcdPrintS("the picture is too big!");
+			lcdPrintlnS("please choose another one");
 		}
 
 		while(!(GPIOF->IDR & 1)); // wait while pressed
 		while(GPIOF->IDR & 1); // wait until released
-		if(1 != (GPIOF->IDR & 1)) yCor=320;
-	}
-
-
-		/*Coordinate crd1;
-		crd1.x = 0;
-		crd1.y = 0; 
-
-		GUI_drawPoint( crd1, BLACK, 1, 1);*/
-	
+		if(1 != (GPIOF->IDR & 1)) {
+			yCor=320;
+			GUI_clear(WHITE);
+		}
+	}	
 }
 
 // EOF

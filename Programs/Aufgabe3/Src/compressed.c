@@ -11,7 +11,7 @@ extern uint16_t displayArray[480];
 void print_cmp_picture(){
 
 	int x = 0;
-	int y = infoHeader.biHeight-1;
+	int y = infoHeader.biHeight;
 	while(true) {
 		uint8_t a = nextChar();
 		uint8_t b = nextChar();

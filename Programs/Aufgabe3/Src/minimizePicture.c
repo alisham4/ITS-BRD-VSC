@@ -7,12 +7,12 @@
 #include <stdbool.h>
 
 extern RGBQUAD palette[256];
-extern uint8_t linesArray[13][13*480];
+extern uint8_t linesArray[MAX_BUFF_SIZE][MAX_BUFF_SIZE*480];
 extern BITMAPFILEHEADER fileHeader;
 extern BITMAPINFOHEADER infoHeader;
 extern uint16_t displayArray[480];
 
-#define MAX_BUFF_SIZE 5
+
 
 uint8_t flag;
 

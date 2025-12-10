@@ -6,6 +6,7 @@
 #define displayWidth 480
 #define displayHeight 320
 
+#define MAX_BUFF_SIZE 5
 /**
 * print line by line on display
  */

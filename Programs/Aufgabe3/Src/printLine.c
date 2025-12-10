@@ -10,7 +10,7 @@ extern BITMAPINFOHEADER infoHeader;
 extern BITMAPFILEHEADER fileHeader;
 extern RGBQUAD palette[256];
 
-uint8_t linesArray[13][13*480];
+uint8_t linesArray[MAX_BUFF_SIZE][MAX_BUFF_SIZE*480];
 uint16_t displayArray[480];
 
 extern MinimizeState minState;
