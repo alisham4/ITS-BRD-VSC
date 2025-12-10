@@ -51,5 +51,5 @@ void padding_Line(){
 // Wandelt eine 24-Bit-RGB-Farbe in 16-Bit-Format um
 uint16_t farbeUmwandeln(RGBQUAD farbe)
 {
-	return (farbe.rgbRed >> 3) << 11 | (farbe.rgbGreen >> 2) << 5 | (farbe.rgbBlue >> 3);
+	return (farbe.rgbRed >> 3) << 11 | (farbe.rgbGreen >> 2) << 5 | (farbe.rgbBlue>> 3);
 }
