@@ -43,31 +43,24 @@ void putPixel(int x, uint8_t farbIndex)
  * Schreibt eine komplette Zeile auf das Display oder,
  * falls das Bild zu groß ist, startet die Verkleinerungslogik.
  */
-void printLine(uint16_t displayArray[],Coordinate crd){
-   if(!minState.tooBig) {
-      int width;
-      if(infoHeader.biWidth < displayWidth){
-         width = infoHeader.biWidth;
-      }else{
-         width = displayWidth;
-      }
-      // Zeile auf dem Display ausgeben
-      GUI_WriteLine(crd, width, displayArray);
-   }
-   else {
-     if (flag == 1){ 
-			minimizeLine();
-			flag = minState.box_size;
-         minState.loopY=0;
-         for(int y = 0; y<minState.box_size; y++){
-            for(int x = 0; x<infoHeader.biWidth; x++){
-               linesArray[y][x]=0;
-            }
-         } 
-		}else {
-         flag--;
-         minState.loopY = minState.loopY + 1;
-      }
-		
-   }
+void printLine(uint16_t displayArray[], Coordinate crd){
+    if(!minState.tooBig) {
+        int width;
+        if(infoHeader.biWidth < displayWidth){
+            width = infoHeader.biWidth;
+        } else {
+            width = displayWidth;
+        }
+        // Zeile auf dem Display ausgeben
+        GUI_WriteLine(crd, width, displayArray);
+    } else {
+        if (flag == 1){ 
+            minimizeLine();
+            flag = minState.box_size;
+            minState.loopY = 0;
+        } else {
+            flag--;
+            minState.loopY = minState.loopY + 1;
+        }
+    }
 }

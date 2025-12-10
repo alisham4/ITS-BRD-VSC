@@ -70,7 +70,7 @@ uint16_t averageColor(int x_start, int y_start, int x_end, int y_end) {
     int count = minState.box_size * minState.box_size;
     if(count == 0) count = 1;
 
-    RGBQUAD avg = { b/count, g/count, r/count, 0 };
+    RGBQUAD avg = { r/count, g/count, b/count, 0 };
     return farbeUmwandeln(avg);
 }
 
