@@ -8,7 +8,7 @@
 
 extern RGBQUAD palette[256];
 
-extern uint8_t linesArray[MAX_BUFF_SIZE][MAX_BUFF_SIZE*480];
+//static uint8_t linesArray[MAX_BUFF_SIZE][MAX_BUFF_SIZE*480];
 
 extern BITMAPFILEHEADER fileHeader;
 extern BITMAPINFOHEADER infoHeader;
@@ -43,7 +43,7 @@ int indexLine(int i) {
 /linesArray enthält Indexwerte in die Palette (8-Bit Farbindex).
  palette[index] liefert den tatsächlichen RGBQUAD-Farbwert.
  */
-RGBQUAD getPixel(int x, int y) {
+RGBQUAD getPixel(int y, int x) {
 	int index = linesArray[y][x];
     return palette[index];
 }
@@ -62,7 +62,7 @@ uint16_t averageColor(int x_start, int y_start, int x_end, int y_end) {
     for(int y = y_start; y >= y_end; y--) {
         for(int x = x_start; x <= x_end; x++) {
             int lineIndex = y - minState.startY-1;
-            RGBQUAD color = getPixel(x, lineIndex);
+            RGBQUAD color = getPixel(lineIndex,x);
             r += color.rgbRed;
             g += color.rgbGreen;
             b += color.rgbBlue;
@@ -89,8 +89,8 @@ void initMinimize() {
         // box_size = wie viele Originalpixel zu einem Displaypixel zusammengefasst werden                                 
         minState.box_size = ceil(1 / minState.scale);       
         // Berechnung der neuen Bildgröße nach Skalierung                      
-        minState.scaled_width = infoHeader.biWidth * minState.scale;
-        minState.scaled_height = infoHeader.biHeight * minState.scale;
+        minState.scaled_width = infoHeader.biWidth/minState.box_size;
+        minState.scaled_height = infoHeader.biHeight/minState.box_size;
         // Bild ist zu groß
         minState.tooBig = true;
     } else {
@@ -113,7 +113,7 @@ void minimizeLine() {
     // y_orig = aktuelle oberste Zeile der Box im Originalbild
     int y_orig = minState.startY;
     // y_end = untere Zeile der Box 
-    int y_end = y_orig - minState.box_size + 1;
+    int y_end = y_orig - minState.box_size+1;
     // Für nächste Iteration: y_orig auf nächste Bildzeile verschieben
     minState.startY = y_end - 1;
 	
@@ -133,7 +133,7 @@ void minimizeLine() {
     GUI_WriteLine(crd, minState.scaled_width, displayArray);
     // Nächste Displayzeile (nach oben rücken)
     yCor--;
-    minState.loopY = (minState.loopY + 1) % MAX_BUFF_SIZE;
+    //minState.loopY = (minState.loopY + 1) % MAX_BUFF_SIZE;
 		
 }
 

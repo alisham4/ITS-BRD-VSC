@@ -16,7 +16,7 @@ void print_uncmp_picture(){
     
     // BMP speichert die erste Zeile am Dateiende.
     // Daher von der unteren Zeile (biHeight-1) nach oben (0).
-    for(y=infoHeader.biHeight-1; y>=0; y--) {
+    for(y=infoHeader.biHeight; y>=0; y--) {
         // DisplayKoordinate für die Zeile
         Coordinate crd = { 0, y };
         // Alle Pixel der Zeile einlesen

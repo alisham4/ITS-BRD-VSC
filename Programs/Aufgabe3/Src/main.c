@@ -61,6 +61,7 @@ int main(void) {
 		
 		} else {
 			GUI_clear(WHITE);
+			
 			lcdPrintS("the picture is too big!");
 			lcdPrintlnS("please choose another one");
 		}

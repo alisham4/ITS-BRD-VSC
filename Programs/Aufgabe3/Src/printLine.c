@@ -14,7 +14,7 @@ extern RGBQUAD palette[256];
 
 // Array für die verkleinerten Zeilen (für große Bilder)
 // 5 Zeilen-Puffer, jede Zeile bis zu 5*480 Bytes
-uint8_t linesArray[MAX_BUFF_SIZE][MAX_BUFF_SIZE*480];
+//static uint8_t linesArray[MAX_BUFF_SIZE][MAX_BUFF_SIZE*480];
 // Array zum speichern der Pixel, die eine Displayzeile bilden
 
 uint16_t displayArray[480];

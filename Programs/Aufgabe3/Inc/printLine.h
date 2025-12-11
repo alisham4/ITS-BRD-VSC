@@ -7,6 +7,7 @@
 #define displayHeight 320
 
 #define MAX_BUFF_SIZE 5
+static uint8_t linesArray[MAX_BUFF_SIZE][MAX_BUFF_SIZE*480];
 /**
 * print line by line on display
  */

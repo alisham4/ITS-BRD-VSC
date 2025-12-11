@@ -15,6 +15,8 @@ typedef struct{
     bool tooBig;
 }MinimizeState;
 
+
+
 void initMinimize();
 
 void minimizeLine();
