@@ -173,6 +173,7 @@ project:
       files:
         - file: ../../ITS_BRD_LIB/Inc/lcd.h
         - file: Inc/crc.h
+        - file: Inc/one_wire_bus_functions.h
 
 
     # Benutzerdefinierte Programmdateien
@@ -180,6 +181,7 @@ project:
       files:
         - file: Src/main.c
         - file: Src/crc.c
+        - file: Src/one_wire_bus_functions.c
 
 
   components:

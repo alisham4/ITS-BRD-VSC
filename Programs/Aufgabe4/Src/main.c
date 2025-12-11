@@ -28,7 +28,7 @@ int main(void) {
 	
 	// Test in Endlosschleife
 	while(1) {
-		HAL_Delay(10000);
+		//HAL_Delay(10000);
 	}
 }
 
