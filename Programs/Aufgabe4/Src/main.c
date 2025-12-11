@@ -7,6 +7,7 @@
   */
 /* Includes ------------------------------------------------------------------*/
 
+#include "Errors.h"
 #include "stm32f4xx_hal.h"
 #include "init.h"
 #include "LCD_GUI.h"
@@ -15,6 +16,7 @@
 #include "fontsFLASH.h"
 #include "additionalFonts.h"
 #include "error.h"
+#include "one_wire_bus_functions.h"
 
 
 int main(void) {
@@ -29,6 +31,11 @@ int main(void) {
 	// Test in Endlosschleife
 	while(1) {
 		//HAL_Delay(10000);
+		int sensor_connected = reset();
+
+		if(sensor_connected != SENSOR_CONNECTED){
+           printError(sensor_connected);
+		}
 	}
 }
 

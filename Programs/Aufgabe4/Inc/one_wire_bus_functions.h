@@ -1,14 +1,22 @@
 #ifndef ONE_WIRE_BUS_FUNCTIONS_
 #define ONE_WIRE_BUS_FUNCTIONS_
 #include <stdbool.h>
+#include "timer.h"
 
 static int byte_read[8];
+static int reg_ROM_number[64];
+
+#define READ_ROM_COMMAND 0x33
+#define EIN_BYTE 8
+#define ACHT_BYTE 64
+
+
 
 //Masken für PD0 und PD1
 #define MASK_PD0 0x01
 #define MASK_PD1 0x02
 
-//Offset
+//Offset für Bus low setzen
 #define OFFSET_16 16
 
 /**
@@ -21,15 +29,21 @@ bool reset();
  */
 int readBit();
 
-/**
-* verschickt ein Bit über dem Bus an den Sensor
- */
-void writeBit(int bit);
-
 /*
 * ruft intern readBit 8 mal auf und speichert die gelesenen Bits in einem Array
 */
-void readByte();
+int* readByte();
 
+void writeByte(int start);
+
+void setPinHigh(int mask);
+
+void setPinLow(int mask);
+
+void write0();
+
+void write1();
+
+void readROMCommand(int rom);
 
 #endif
