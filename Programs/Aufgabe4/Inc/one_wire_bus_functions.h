@@ -1,7 +1,7 @@
 #ifndef ONE_WIRE_BUS_FUNCTIONS_
 #define ONE_WIRE_BUS_FUNCTIONS_
 #include <stdbool.h>
-#include "timer.h"
+#include <stdint.h>
 
 static int byte_read[8];
 static int reg_ROM_number[64];
@@ -34,7 +34,7 @@ int readBit();
 */
 void readByte();
 
-void writeByte(int startIndex);
+void writeByte(uint8_t startIndex);
 
 void setPinHigh(int mask);
 

@@ -1,8 +1,6 @@
 #include "one_wire_bus_functions.h"
 #include "Errors.h"
 #include "stm32f429xx.h"
-#include "stm32f4xx.h"
-#include "stm32f4xx_hal.h"
 #include "timer.h"
 #include <stdbool.h>
 #include <stdint.h>
@@ -58,7 +56,7 @@ void readByte(){
     }
 }
 
-void writeByte(int startIndex){
+void writeByte(uint8_t startIndex){
     readByte();
     for(int i = startIndex; i<ACHT_BYTE;i++){
         reg_ROM_number[i] = byte_read[i];
@@ -81,8 +79,6 @@ void readROMNumber(){
         writeByte(i);
     }
 }
-
-
 
 
 bool reset(){
