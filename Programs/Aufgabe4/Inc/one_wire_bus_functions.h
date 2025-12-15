@@ -5,8 +5,8 @@
 
 static int byte_read[8];
 static int reg_ROM_number[64];
+static int read_ROM_command[] = {0,0,1,1,0,0,1,1};
 
-#define READ_ROM_COMMAND 0x33
 #define EIN_BYTE 8
 #define ACHT_BYTE 64
 
@@ -32,9 +32,9 @@ int readBit();
 /*
 * ruft intern readBit 8 mal auf und speichert die gelesenen Bits in einem Array
 */
-int* readByte();
+void readByte();
 
-void writeByte(int start);
+void writeByte(int startIndex);
 
 void setPinHigh(int mask);
 
@@ -44,6 +44,9 @@ void write0();
 
 void write1();
 
-void readROMCommand(int rom);
+void readROMCommand();
+
+void readROMNumber();
+
 
 #endif

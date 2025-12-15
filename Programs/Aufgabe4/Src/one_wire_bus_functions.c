@@ -51,15 +51,36 @@ int readBit(){
     return (GPIOD->IDR & 0x01);
 }
 
-int* readByte(){
+void readByte(){
 
     for(int i = 0; i < EIN_BYTE; i++){
         byte_read[i] = readBit();
     }
-    return byte_read;
 }
 
+void writeByte(int startIndex){
+    readByte();
+    for(int i = startIndex; i<ACHT_BYTE;i++){
+        reg_ROM_number[i] = byte_read[i];
+    }
+}
 
+void readROMCommand() {
+ 
+    for(int i = 0; i < EIN_BYTE; i++){
+        if(read_ROM_command[i] == 1){
+            write1();
+        }else{
+            write0();
+        }
+    }
+}
+
+void readROMNumber(){
+    for (int i = 0; i < ACHT_BYTE; i= i+8) {
+        writeByte(i);
+    }
+}
 
 
 
