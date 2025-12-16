@@ -48,5 +48,12 @@ void readROMCommand();
 
 void readROMNumber();
 
+/**
+* identifies the ROM codes of all slave devices on the bus, 
+* which allows the master to determine the number of 
+* slaves and their device types
+*/
+void searchROM();
+
 
 #endif

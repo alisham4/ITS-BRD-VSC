@@ -175,6 +175,7 @@ project:
         - file: Inc/crc.h
         - file: Inc/one_wire_bus_functions.h
         - file: Inc/errors.h
+        - file: Inc/temperature_functions.h
 
 
     # Benutzerdefinierte Programmdateien
@@ -184,6 +185,7 @@ project:
         - file: Src/crc.c
         - file: Src/one_wire_bus_functions.c
         - file: Src/errors.c
+        - file: Src/temperature_functions.c
 
 
   components:
