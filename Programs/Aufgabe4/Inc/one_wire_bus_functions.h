@@ -3,9 +3,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-static int byte_read[8];
-static int reg_ROM_number[64];
-static int read_ROM_command[] = {0,0,1,1,0,0,1,1};
+
+#define READ_ROM_CMD 0x33
 
 #define EIN_BYTE 8
 #define ACHT_BYTE 64
@@ -18,6 +17,14 @@ static int read_ROM_command[] = {0,0,1,1,0,0,1,1};
 
 //Offset für Bus low setzen
 #define OFFSET_16 16
+
+void delayUs(int us);
+void setPinLow(int pin);
+void setPinHigh(int pin);
+void setPinInput(int pin);
+void setPinOutput(int pin);
+void setPinOpenDrain(int pin);
+void setPinPushPull(int pin);
 
 /**
 * wird am Anfang des Programs aufgerufen. Stellt sichr, ob Sensoren angeschlossen sind oder nicht.
@@ -32,7 +39,7 @@ int readBit();
 /*
 * ruft intern readBit 8 mal auf und speichert die gelesenen Bits in einem Array
 */
-void readByte();
+uint8_t readByte();
 
 void writeByte(uint8_t startIndex);
 
@@ -46,14 +53,20 @@ void write1();
 
 void readROMCommand();
 
-void readROMNumber();
+void readROMNumber(uint8_t rom[8]);
 
 /**
 * identifies the ROM codes of all slave devices on the bus, 
 * which allows the master to determine the number of 
-* slaves and their device types
+* 
+slaves and their device types
 */
 void searchROM();
 
+void initOnewire();
+
+
+int skip_rom();
+int match_rom(uint8_t rom[8]);
 
 #endif

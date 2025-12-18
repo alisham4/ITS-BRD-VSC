@@ -1,5 +1,6 @@
 #include "one_wire_bus_functions.h"
 #include "Errors.h"
+#include "errors.h"
 #include "stm32f429xx.h"
 #include "timer.h"
 #include <stdbool.h>
@@ -12,89 +13,159 @@ void delayUs(int us)
     while((getTimeStamp() - start) < ticks) {}
 }
 
-void setPinLow(int mask){
-    GPIOD->BSRR = mask << OFFSET_16; 
+void setPinLow(int pin){
+    GPIOD->BSRR = 1 << (pin + OFFSET_16); 
 }
 
-void setPinHigh(int mask){
-    GPIOD->BSRR = mask;
+void setPinHigh(int pin){
+    GPIOD->BSRR = (1 << pin);
+}
+
+void setPinInput(int pin) {
+    GPIOD->MODER &= ~(0x3 << (2 * pin));
+}
+
+void setPinOutput(int pin) {
+    GPIOD->MODER &= ~(0x3 << (2 * pin));
+    GPIOD->MODER |= (0x1 << (2 * pin));
+}
+
+void setPinOpenDrain(int pin) {
+    GPIOD->OTYPER |= (1 << pin);
+}
+
+void setPinPushPull(int pin) {
+    GPIOD->OTYPER &= ~(1 << pin);
+}
+
+void initOnewire() {
+    setPinHigh(1);
+    setPinOpenDrain(0);
+    setPinHigh(0);
+}
+
+int readPin(int pin) {
+    return (GPIOD->IDR >> pin) & 1;
 }
 
 void write1(void)
 {
-    setPinLow(MASK_PD0);
+    setPinLow(0);
     delayUs(6);
-    setPinHigh(MASK_PD0);
+    setPinHigh(0);
     delayUs(64);
 }
 
 void write0(void)
 {
-    setPinLow(MASK_PD0);
+    setPinLow(0);
     delayUs(60);
-    setPinHigh(MASK_PD0);
+    setPinHigh(0);
     delayUs(10);
 }
 
 int readBit(){
     //set low
-    setPinLow(MASK_PD0);
+    setPinLow(0);
     //dealy 6
     delayUs(6);
     //set high
-    setPinHigh(MASK_PD0);
+    setPinHigh(0);
     //delay 9
+    setPinInput(0);
     delayUs(9);
     //Bit einlesen
-    return (GPIOD->IDR & 0x01);
+    int bit = readPin(0);
+
+    delayUs(55);
+    setPinOutput(0);
+    return bit;
 }
 
-void readByte(){
-
-    for(int i = 0; i < EIN_BYTE; i++){
-        byte_read[i] = readBit();
+void writeBit(int bit)
+{
+    if(bit) {
+        write1();
+    }
+    else {
+        write0();
     }
 }
 
-void writeByte(uint8_t startIndex){
-    readByte();
-    for(int i = startIndex; i<ACHT_BYTE;i++){
-        reg_ROM_number[i] = byte_read[i];
+uint8_t readByte() {
+    uint8_t byte = 0;
+    for(int i = 0; i < EIN_BYTE; i++) {
+        byte |= (readBit() << i);
+    }
+
+    return byte;
+}
+
+void writeByte(uint8_t byte){
+    for(int i = 0; i < EIN_BYTE; i++){
+        writeBit((byte >> i) & 1);
     }
 }
 
 void readROMCommand() {
- 
-    for(int i = 0; i < EIN_BYTE; i++){
-        if(read_ROM_command[i] == 1){
-            write1();
-        }else{
-            write0();
-        }
-    }
+    writeByte(READ_ROM_CMD);
 }
 
-void readROMNumber(){
-    for (int i = 0; i < ACHT_BYTE; i= i+8) {
-        writeByte(i);
+void readROMNumber(uint8_t rom[8]) {
+    for (int i = 0; i < 8; i++) {
+        rom[i] = readByte();
     }
 }
-
 
 bool reset(){
 
     //set low
-    setPinLow(MASK_PD0);
+    setPinLow(0);
     //delay 480
     delayUs(480);
     //set high
-    setPinHigh(MASK_PD0);
+    setPinHigh(0);
     //delay 70
+    setPinInput(0);
     delayUs(70);
     //Bit einlesen vom Sensor
-    if(readBit()!= 0){
-       return SENSOR_NOT_CONNECTED;
+    int bit = readBit();
+
+    setPinOutput(0);
+    delayUs(410);
+
+    if(bit != 0){
+       return ERROR_NOT_CONNECTED;
     }else{
-        return SENSOR_CONNECTED;
+        return STATUS_SUCCESS;
     }
 }
+
+int skip_rom()
+{
+    int status = reset();
+    if(status != STATUS_SUCCESS)
+    {
+        return status;
+    }
+
+    writeByte(0xCC);
+    return status;
+}
+
+int match_rom(uint8_t rom[8])
+{
+    int status = reset();
+    if(status != STATUS_SUCCESS)
+    {
+        return status;
+    }
+
+    writeByte(0x55);
+    for(int i = 0; i < 8; i++) {
+        writeByte(rom[i]);
+    }
+
+    return status;
+}
+

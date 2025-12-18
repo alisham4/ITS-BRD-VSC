@@ -3,6 +3,7 @@
 
 void printError(int error){
     switch(error){
-        case SENSOR_NOT_CONNECTED : lcdPrintS("Sensor is not connected!");
+        case ERROR_NOT_CONNECTED: lcdPrintS("Not connected!"); break;
+        case ERROR_CRC_CHECK: lcdPrintS("CRC error!"); break;
     }
 }
