@@ -58,15 +58,16 @@ void readROMNumber(uint8_t rom[8]);
 /**
 * identifies the ROM codes of all slave devices on the bus, 
 * which allows the master to determine the number of 
-* 
-slaves and their device types
+* slaves and their device types
 */
-void searchROM();
+uint8_t searchROM(uint8_t *rom, uint8_t last_device_flag);
 
 void initOnewire();
 
 
 int skip_rom();
 int match_rom(uint8_t rom[8]);
+
+void detect_sensors(uint8_t roms[][8], uint8_t count);
 
 #endif

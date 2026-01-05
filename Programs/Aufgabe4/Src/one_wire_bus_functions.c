@@ -1,10 +1,12 @@
 #include "one_wire_bus_functions.h"
 #include "Errors.h"
+#include "crc.h"
 #include "errors.h"
 #include "stm32f429xx.h"
 #include "timer.h"
 #include <stdbool.h>
 #include <stdint.h>
+#include <string.h>
 
 void delayUs(int us)
 {
@@ -167,5 +169,88 @@ int match_rom(uint8_t rom[8])
     }
 
     return status;
+}
+
+uint8_t searchROM(uint8_t *rom, uint8_t last_device_flag){
+    uint8_t id_bit, inverse_id_bit;
+    uint8_t last_discrepancy = 0; 
+    uint8_t last_zero = 0;
+
+    if (last_device_flag)
+        return 0;
+
+    if (reset())
+        return ERROR_NOT_CONNECTED;
+
+    writeByte(0xF0); // SEARCH_ROM
+
+    for (uint8_t id_bit_number = 1; id_bit_number <= 64; id_bit_number++)
+    {
+        id_bit = readBit();
+        inverse_id_bit = readBit();
+
+        if ((id_bit==1) && (inverse_id_bit==1))
+            return ERROR_SEARCH_ALGORYTHM_FAILED;
+
+        uint8_t search_direction;
+
+        if ((id_bit==0) && (inverse_id_bit==1)||(id_bit==1) && (inverse_id_bit==0))
+        {
+            search_direction = id_bit;
+        }
+        else //both equals 0
+        {
+          if(id_bit_number==last_discrepancy) {
+            search_direction = 1;
+          } else if (id_bit_number>last_discrepancy) {
+            search_direction = 0;
+          } else {
+            search_direction = id_bit_number;
+          }
+
+
+          if (search_direction==0) {
+            last_zero=id_bit_number;
+          }
+
+          if (last_zero < 9) {
+            
+          }
+
+        }
+
+        //write found ROM-bit into array 
+        rom[id_bit_number] = search_direction;
+
+        writeBit(search_direction);
+    }
+
+    last_discrepancy = last_zero;
+    if (last_discrepancy == 0)
+        last_device_flag = 1;
+
+    return 1;
+}
+
+void detect_sensors(uint8_t roms[][8], uint8_t found_sensor_count)
+{
+    uint8_t rom[8];
+   
+    uint8_t last_device_flag = 0;// if it is 1, then all sensors are found
+
+    found_sensor_count = 0;
+
+    while (!last_device_flag && found_sensor_count < 4)
+    {
+        if (!searchROM(rom, last_device_flag))
+            break;
+
+        // CRC prüfen
+        if (checkCRC(7,rom) != rom[7])
+            continue;
+
+        memcpy(roms[found_sensor_count], rom, 8);
+        found_sensor_count++;
+    }
 }
 

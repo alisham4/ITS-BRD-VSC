@@ -17,7 +17,9 @@
 #include "one_wire_bus_functions.h"
 #include "temperature_functions.h"
 #include "timer.h"
+#include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 
 void lcdPrintByteHex(uint8_t byte)
 {
@@ -26,6 +28,7 @@ void lcdPrintByteHex(uint8_t byte)
 	lcdPrintC(hex[byte & 0xF]);
 }
 
+/*
 uint8_t sensor_roms[][8] =
 {
 	{0x28,0x0B,0x6F,0x54,0x0F,0x00,0x00,0x11 },
@@ -33,6 +36,9 @@ uint8_t sensor_roms[][8] =
 	{0x28,0x67,0xC6,0x54,0x0F,0x00,0x00,0x6F },
 	{0x28,0x18,0x87,0x54,0x0F,0x00,0x00,0xF7 },
 };
+*/
+uint8_t sensor_roms[4][8]; 
+uint8_t found_sensor_count = 0;
 
 int main(void) {
 	initITSboard();    // Initialisierung des ITS Boards
@@ -40,13 +46,26 @@ int main(void) {
 	initOnewire();
 	GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
 	TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
+
+	detect_sensors(sensor_roms, found_sensor_count);
+	if (found_sensor_count == 0)
+	{
+		lcdGotoXY(0, 0);
+		lcdPrintS("No sensors!");
+		while (1);
+	}
+			
 	
 	// Test Mit mehreren Sensoren
 	while(1) {
 		
+		
 
 		for(int i = 0; i < 4; i++) {
+
 			uint8_t *rom = sensor_roms[i];
+			
+
 			lcdGotoXY(0, 2 + i);
 			for(int i = 0; i < 8; i++) {
 				lcdPrintByteHex(rom[i]);
@@ -68,7 +87,7 @@ int main(void) {
 	}
 
 	uint8_t rom[8] = {0};
-	// Test in Endlosschleife
+	// Test mit einem Sensor in Endlosschleife
 	while(1) {
 		//reset
 		int status = reset();
@@ -105,5 +124,8 @@ int main(void) {
 		lcdPrintS(buf);
 	}
 }
+
+
+
 
 // EOF
