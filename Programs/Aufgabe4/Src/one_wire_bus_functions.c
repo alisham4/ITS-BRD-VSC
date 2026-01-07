@@ -183,7 +183,7 @@ int searchROM(uint8_t *rom, int last_device_flag){
     int search_result = 0;
 
     //if the last call was not the last one 
-    if (last_device_flag){
+    if (!last_device_flag){
         //1-Wire reset
         if(!reset()){
             //reset the search 
@@ -207,7 +207,7 @@ int searchROM(uint8_t *rom, int last_device_flag){
                 return ERROR_SEARCH_ALGORYTHM_FAILED;//break? 
             } else {
                 //all devices coupled have 0 or 1 
-                if ((id_bit==0) && (cmp_id_bit==1)||(id_bit==1) && (cmp_id_bit==0)){
+                if (id_bit != cmp_id_bit){
                     search_direction = id_bit; 
                 }
                 else{ //both equals 0
