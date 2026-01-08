@@ -3,12 +3,12 @@
 
 //READ PIN A
 int readPinA(){
-    return (IDR_MASK_PIN_A == (GPIOF->IDR & IDR_MASK_PIN_A));
+    return (IDR_MASK_PIN_A == (GPIOG->IDR & IDR_MASK_PIN_A));
 }
 
 //READ PIN B
 int readPinB(){
-    return (IDR_MASK_PIN_B == (GPIOF->IDR & IDR_MASK_PIN_B));
+    return (IDR_MASK_PIN_B == (GPIOG->IDR & IDR_MASK_PIN_B));
 }
 
 //CHECK BUTTON S6 (if not equal => pressed , else not pressed)

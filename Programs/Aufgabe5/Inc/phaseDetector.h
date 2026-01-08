@@ -30,4 +30,8 @@ char get_result_transition(int phaseAktuell);
  */
 int counter(char phaseChange);
 
+void initISR();
+
+void static inline readInputInterrupt();
+
 #endif

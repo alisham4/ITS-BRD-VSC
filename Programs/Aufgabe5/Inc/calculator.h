@@ -2,8 +2,8 @@
 #define ANGLECALCULATOR_H
 #include <stdint.h>
 
-#define MAX_ANGLE_LENGTH 7
-#define MAX_ANGULAR_VElOCITY 7
+#define MAX_ANGLE_LENGTH 12
+#define MAX_ANGULAR_VElOCITY 12
 #define ANGLE (stepCounter*0.3)
 
 /**

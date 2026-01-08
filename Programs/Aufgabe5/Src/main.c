@@ -29,6 +29,8 @@
 #define TIMER_CONT (1000 * TICKS_PER_US)
 //declaration of variables stepCounter and phaseOld
 extern int stepCounter, phaseOld;
+extern uint32_t startTime;
+extern char currentState;
 
 int main(void) {
   initITSboard();    // Initialisierung des ITS Boards
@@ -39,14 +41,15 @@ int main(void) {
 
   //initialize timer 
   initTimer();  
+
+  
+  //activate interrupt
+  initISR();
  
   //initialize variables 
   uint32_t lastTime = 0;
-  uint32_t startTime = 0;
   double angle = 0.0;
-  bool buttonPressed = false;
   double lastAngle = 0.0;
-  char currentState = NO_CHANGE;
   double omega = 0.0;
   int phaseCurrent = 0;
 
@@ -59,29 +62,15 @@ int main(void) {
 	// Test in Endlosschleife
     
 	while(1) {
+        int buttonPressed = checkButtonS6();
 
-		//read input 
-        startTime = getTimeStamp();
-        buttonPressed = checkButtonS6();
-        phaseCurrent = get_single_phase();
+		int stepCounterCopy = stepCounter;
+		uint32_t startTimeCopy = startTime;
+		char currentStateCopy = currentState;
 
 
-        //update phase 
-        if(currentState == ERROR_)
-        {
-            if(buttonPressed){
-                currentState = NO_CHANGE;
-                LED_OFF(BSRR_LED21_MASK);
-                stepCounter = 0;
-                phaseOld = -1;
-            }
-        }
-        else {
-            currentState = get_result_transition(phaseCurrent);
-        }
-        
         //turn leds on according to phaseChange
-        switch (currentState) {
+        switch (currentStateCopy) {
             // case BACKWARD -> LED22 on 
             case BACKWARD : LED_ON(BSRR_LED22_MASK);
             break;
@@ -95,17 +84,36 @@ int main(void) {
             case NO_CHANGE : 
             break;
         }
+
+		
+		if(currentStateCopy == ERROR_)
+        {
+            if(buttonPressed){
+                currentState = NO_CHANGE;
+                LED_OFF(BSRR_LED21_MASK);
+                stepCounter = 0;
+                phaseOld = -1;
+            }
+        }
  
+		uint32_t curTime = getTimeStamp();
         
 		//check timer
-        angle = stepCounter * 0.3;
-        uint32_t time_diff = startTime - lastTime;
-		if((time_diff > 250 * TIMER_CONT && currentState != NO_CHANGE) ||
-            time_diff > 500 * TIMER_CONT)
+        angle = stepCounterCopy * 0.3;
+        uint32_t time_diff = startTimeCopy - lastTime;
+		uint32_t time_diff_loop = curTime - lastTime;
+		
+		if(time_diff_loop > 500 * TIMER_CONT)
+		{
+			time_diff = time_diff_loop;
+			startTimeCopy = curTime;
+		}
+
+		if(time_diff > 250 * TIMER_CONT)
 		{
 			//update angular velocity
 			omega = get_angular_velocity(angle - lastAngle, time_diff / (1000.0 * TIMER_CONT));
-            lastTime = startTime;
+            lastTime = startTimeCopy;
             lastAngle = angle;
 		}
         
@@ -115,8 +123,7 @@ int main(void) {
         
 		//output (turn leds on according to stepCounter)
         GPIOD->BSRR = 0xFF << 16;
-        GPIOD->BSRR = stepCounter & 0xFF;
+        GPIOD->BSRR = stepCounterCopy & 0xFF;
 	}
-       // LED_OFF(0x01<<2); 
 
 }

@@ -36,8 +36,8 @@ void updateDisplayValues(double angle, double angular_velocity){
     static int indexAngle = 0;
     static int indexVelocity = 0;
 
-    snprintf(angle_arrayCurrent, MAX_ANGLE_LENGTH, "%6.1f", angle);
-    snprintf(angular_velocity_arrayCurrent, MAX_ANGULAR_VElOCITY, "%6.1f", angular_velocity);
+    snprintf(angle_arrayCurrent, MAX_ANGLE_LENGTH, "%11.1f", angle);
+    snprintf(angular_velocity_arrayCurrent, MAX_ANGULAR_VElOCITY, "%11.1f", angular_velocity);
 
     refreshDisplay(angle_arrayCurrent, angle_arrayOld, MAX_ANGLE_LENGTH, 3, 9, &indexAngle);
     refreshDisplay(angular_velocity_arrayCurrent, angular_velocity_arrayOld, MAX_ANGULAR_VElOCITY, 1, 21, &indexVelocity);
