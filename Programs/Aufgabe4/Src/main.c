@@ -47,19 +47,25 @@ int main(void) {
 	GUI_init(DEFAULT_BRIGHTNESS);   // Initialisierung des LCD Boards mit Touch
 	TP_Init(false);                 // Initialisierung des LCD Boards mit Touch
 
-	detect_sensors(sensor_roms, found_sensor_count);
-	if (found_sensor_count == 0)
-	{
-		lcdGotoXY(0, 0);
-		lcdPrintS("No sensors!");
-		while (1);
-	}
+	
+	
 			
 	
 	// Test Mit mehreren Sensoren
 	while(1) {
+		int status = detect_sensors();
+		if(status != STATUS_SUCCESS) {
+			lcdGotoXY(0, 0);
+           	printError(status);
+			continue;
+		}
 		
-		
+		if (found_sensor_count == 0)
+		{
+			lcdGotoXY(0, 0);
+			lcdPrintS("No sensors!");
+			continue;
+		}
 
 		for(int i = 0; i < 4; i++) {
 
